@@ -12,6 +12,8 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="worg.css" />
 # ##########
 
+Enlace al [[https://github.com/mbujosab/nacal-Jupyter-Notebooks][repositorio]] de GitHub
+
 # * NAcAL Jupyter Notebooks
 #     :PROPERTIES:  
 #     :UNNUMBERED: t
