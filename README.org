@@ -1,4 +1,4 @@
-- Enlace a la [[https://mbujosab.github.io/nacal-Jupyter-Notebooks/][web]
+- Enlace a la [[https://mbujosab.github.io/nacal-Jupyter-Notebooks/][web]]
 
 * NAcAL Jupyter Notebooks
 
