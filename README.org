@@ -1,0 +1,12 @@
+- Enlace a la [[https://mbujosab.github.io/nacal-Jupyter-Notebooks/][web]
+
+* NAcAL Jupyter Notebooks
+
+- Puede ejecutar los notebooks en su navegador pinchando aquí 
+  [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master][https://mybinder.org/badge_logo.svg]]
+
+  (/es un servicio gratuito y puede tardar en generar la copia del repositorio/)
+
+- Puede ver el contenido de los notebooks en su navegador pinchando
+  [[https://nbviewer.jupyter.org/github/mbujosab/nacal-Jupyter-Notebooks/tree/master/][aquí]]
+ 

@@ -1,0 +1,19 @@
+#+title:  NAcAL Jupyter Notebooks
+#+author: Marcos Bujosa 
+#+email:  mbujosab@ucm.es
+#+LANGUAGE: es-es
+
+# CONVERTIR EN HTML DESDE EMACS (NO DESDE SCIMAX)
+
+# ###########
+# ESTO DA EL FORMATO FINAL DE LA PÁGINA WEB VÉASE [[https://olmon.gitlab.io/org-themes/]]
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="worg.css" />
+# ##########
+
+* NAcAL Jupyter Notebooks
+    :PROPERTIES:  
+    :UNNUMBERED: t
+    :END:  
+# y una introducción a la Probabilidad como extensión del Álgebra Lineal
+
+#+INCLUDE: "README.org::* NAcAL Jupyter Notebooks" :only-contents t 
