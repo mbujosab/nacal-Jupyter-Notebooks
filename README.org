@@ -2,11 +2,24 @@
 
 * NAcAL Jupyter Notebooks
 
-- Puede ejecutar los notebooks en su navegador pinchando aquí 
-  [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master][https://mybinder.org/badge_logo.svg]]
-
-  (/es un servicio gratuito y puede tardar en generar la copia del repositorio/)
-
 - Puede ver el contenido de los notebooks en su navegador pinchando
   [[https://nbviewer.jupyter.org/github/mbujosab/nacal-Jupyter-Notebooks/tree/master/][aquí]]
- 
+
+- Puede ejecutar los notebooks en su navegador pinchando [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master][aquí]]
+  # [https://mybinder.org/badge_logo.svg]
+  
+- También puede copiarlos en su disco y ejecutarlos localmente, pero
+  tendrá que instalar Pyhton y Jupyter en su ordenador.
+
+** Enlace a los notebooks individuales en mybinder para ejecutarlos en el navegador
+
+/Mybinder es un servicio gratuito y puede tardar en generar la copia
+del repositorio/ (a veces no llega a funcionar)
+
+
+*** Lección 1
+
+- [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc01-Secc1.1.ipynb][Lecc01-Secc1.1.ipynb]]
+- [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc01-Secc1.2.ipynb][Lecc01-Secc1.2.ipynb]]
+- [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc01-Secc1.4.ipynb][Lecc01-Secc1.4.ipynb]]
+- [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc01-Secc1.5.ipynb][Lecc01-Secc1.5.ipynb]]
