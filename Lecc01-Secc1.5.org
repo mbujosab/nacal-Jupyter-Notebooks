@@ -1,0 +1,296 @@
+#+TITLE: Lección 01 - Sección 1.5
+#+AUTHOR: Marcos Bujosa
+#+LANGUAGE: es-es
+#+STARTUP: show3levels
+# +STARTUP: latexpreview
+
+#+LaTeX_HEADER: \usepackage{nacal}
+
+# +OPTIONS: toc:nil
+
+#+ox-ipynb-keyword-metadata: key1 key2
+
+#+BEGIN_EXPORT latex
+\maketitle
+#+END_EXPORT
+
+# COMMENT +PROPERTY: header-args:jupyter-python :results replace raw :display text/latex 
+# COMMENT +PROPERTY: header-args:jupyter-python :results raw :results replace :display text/latex 
+# COMMENT +PROPERTY: header-args:jupyter-python :results replace drawer
+#+PROPERTY: header-args:jupyter-python :results replace
+
+
+/Lea primero la [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.1.5][Sección 1.5]] y [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.1.6][Sección 1.6]] de la Lección 1 del [[https://mbujosab.github.io/CursoDeAlgebraLineal][libro]]./
+
+
+#+BEGIN_SRC jupyter-python :results silent
+from nacal import *
+#+END_SRC
+
+#+BEGIN_SRC jupyter-python  :results silent :exports none
+from IPython.display import display_png
+from sympy import preview
+#+END_SRC
+
+
+*** COMMENT para Jupyter-Notebook                                :noexports:
+\(
+\newcommand{\Rr}{{\mathbb{R}}}
+\newcommand{\Zz}{{\mathbb{Z}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\getItem}{\pmb{\mid}}
+\newcommand{\getitemR}[1]{\getItem{#1}}
+\newcommand{\getitemL}[1]{{#1}\getItem}
+\newcommand{\elemR}[2]{{#1}^{\phantom{\T}}_{\getitemR{#2}}} 
+\newcommand{\elemRP}[2]{{\big(#1\big)}^{\phantom{\T}}_{\getitemR{#2}}} 
+\newcommand{\elemRPE}[2]{\big({#1}^{\phantom{\T}}_{\getitemR{#2}}\big)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Vect}[2][{}]{{\boldsymbol{#2}}_{#1}}
+\newcommand{\eleVR}[2]  {\elemR  {\Vect{#1}}{#2}}	 % con subindices
+\newcommand{\eleVRP}[2] {\elemRP {\Vect{#1}}{#2}}      % con subindices y paréntesis interior
+\newcommand{\eleVRPE}[2]{\elemRPE{\Vect{#1}}{#2}}      % con subindices y paréntesis exterior
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\VectC}[2][{}]  {\elemR  {\Mat{#2}}{#1}}   % con subindices
+\newcommand{\VectCP}[2][{}] {\elemRP {\Mat{#2}}{#1}}   % con subindices y paréntesis
+\newcommand{\VectCPE}[2][{}]{\elemRPE{\Mat{#2}}{#1}}   % con subindices y paréntesis exterior
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\mat}[1]{\boldsymbol{\mathsf{#1}}}
+\newcommand{\Mat} [2][{}]{{\mat{#2}}_{#1}} 
+\newcommand{\T}{\intercal}
+\newcommand{\MatT}[2][{}]{{\mat{#2}}^{\T}_{#1}}
+\newcommand{\VectCC}[2][{}]   {\elemRR {\Mat{#2}}{#1}}   % con ()
+\newcommand{\VectCCC}[2][{}]  {\elemRRR{\Mat{#2}}{#1}}   % con texto "col"
+%SELECCIÓNA de FILAS y COlUMNAS DE UNA MATRIZ TRANSPUESTA PARA GENERAR UN VECTOR DE Rn
+\newcommand{\VectTC}[2][{}]   {\elemR{\MatT{#2}\!}{#1}}  % con subindices
+\newcommand{\VectTCC}[2][{}]  {\elemRR{ \MatT{#2}}{#1}}  % con ()
+\newcommand{\VectTCCC}[2][{}] {\elemRRR{\MatT{#2}}{#1}}  % con texto "col"
+\newcommand{\dotprod}[2][{}] {\Vect{#1}\cdot\Vect{#2}}
+\)
+
+
+
+* Suma de matrices y producto por un escalar
+El comportamiento de la suma de matrices y el producto de una matriz
+por un escalar es similar al caso de los vectores.
+#+BEGIN_SRC jupyter-python
+I(2)*100
+#+END_SRC
+
+#+BEGIN_SRC jupyter-python
+4*Matrix( [ [1,5], [5,1] ] )
+#+END_SRC
+
+#+BEGIN_SRC jupyter-python
+I(2)*100 - 4*Matrix( [ [1,5], [5,1] ] )
+#+END_SRC
+
+Verifique con algunos ejemplos que el operador selector es lineal
+(distributivo respecto de la suma y asociativo respecto del producto
+por escalares).
+#+BEGIN_SRC jupyter-python
+
+#+END_SRC
+
+* Igualdad de matrices
+Dos matrices son iguales si lo son los correspondientes sistemas.
+#+BEGIN_SRC jupyter-python
+a = Vector( [1,2] )
+b = Vector( [1,0] )
+c = Vector( [9,2] )
+#+END_SRC
+
+#+BEGIN_SRC jupyter-python
+A = Matrix( [a,b,c] )
+display(A)
+#+END_SRC
+
+#+BEGIN_SRC jupyter-python
+B = Matrix( [ [1,1,9], [2,0,2] ] )
+display(B)
+#+END_SRC
+
+#+BEGIN_SRC jupyter-python
+print(A|1 == B|1)
+print(A|2 == B|2)
+print(A|3 == B|3)
+#+END_SRC
+
+#+BEGIN_SRC jupyter-python
+A == B
+#+END_SRC
+
+* Jugando con la librería.
+
+la primera fila de $\Mat{A}$ 
+#+BEGIN_SRC jupyter-python
+1|A
+#+END_SRC
+es la primera columna de su transpuesta
+#+BEGIN_SRC jupyter-python
+(~A)|1
+#+END_SRC
+
+Si además queremos que la representación de la primera fila sea en
+forma de fila, podemos hacerlo del siguiente modo:
+#+BEGIN_SRC jupyter-python
+Vector( (~A)|1, rpr='h')
+#+END_SRC
+
+Siguiendo la notación del [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#subsection.1.4.5][libro]], definamos una matriz cuya única fila
+es la primera fila de $\Mat{A}$ del siguiente modo:
+#+BEGIN_SRC jupyter-python
+~Matrix( [ 1|A ] )
+#+END_SRC
+Pero recuerde que es más sencillo usar el operador selector y una
+tupla con un único elemento
+#+LaTeX: \newline
+(/Si el argumento empleado con el selector es un índice obtenemos un vector, pero cuando seleccionamos una tupla de índices obtenemos una matriz/.)
+#+BEGIN_SRC jupyter-python
+(1,)|A
+#+END_SRC
+
+El elemento que está en la primera fila y tercera columna es:
+#+BEGIN_SRC jupyter-python
+1|A|3
+#+END_SRC
+
+Pero si transponemos la matriz, hay que intercambiar los índices de
+dicho componente:
+#+BEGIN_SRC jupyter-python
+3|(~A)|1
+#+END_SRC
+
+Y si transponemos dos veces obtenemos la matriz original:
+#+BEGIN_SRC jupyter-python
+~~A
+#+END_SRC
+
+La tercera columna de $\Mat{A}$ es la tercera fila de su transpuesta:
+#+BEGIN_SRC jupyter-python
+display( A|3    )
+display( 3|(~A) )
+#+END_SRC
+
+Como $\lambda(\MatT{A})=(\lambda\Mat{A})^\T$, sabemos que logramos lo
+mismo si primero transponemos la matriz y luego multiplicamos por un
+escalar que si primero multiplicamos y luego transponemos. Verifíquelo
+con un ejemplo
+#+BEGIN_SRC jupyter-python
+
+#+END_SRC
+
+#+BEGIN_SRC jupyter-python
+
+#+END_SRC
+
+
+* Ejercicios de la Lección 1
+
+** Primer ejercicio
+Cree la matriz
+$$\Mat{A}=\begin{bmatrix}1&0&0&0\\2&0&0&0\\0&3&3&0\\0&3&4&1\\0&1&2&1\end{bmatrix}$$
+#+BEGIN_SRC jupyter-python
+
+#+END_SRC
+
+
+Cree a partir de $\Mat{A}$ una matriz cuya única columna sea la
+primera columna de $\Mat{A}$
+#+BEGIN_SRC jupyter-python
+
+#+END_SRC
+
+
+Cree a partir de $\Mat{A}$ una matriz cuya única columna sea la segunda 
+fila de $\Mat{A}$
+#+BEGIN_SRC jupyter-python
+
+#+END_SRC
+
+
+#+BEGIN_EXERCISE
+Cree a partir de $\Mat{A}$ una matriz cuya única fila sea la primera
+fila de $\Mat{A}$
+#+END_EXERCISE
+
+#+BEGIN_SRC jupyter-python
+
+#+END_SRC
+
+
+#+BEGIN_EXERCISE
+Cree a partir de $\Mat{A}$ una matriz cuya única fila sea la segunda 
+columna de $\Mat{A}$
+#+END_EXERCISE
+
+#+BEGIN_SRC jupyter-python
+
+#+END_SRC
+
+
+** Segundo ejercicio
+Calcule el siguiente vector: 3 veces la primera columna de $\Mat{A}$
+menos la segunda columna de $\Mat{A}$ mas 2 veces la tercera columna
+menos 3 veces la última columna de $\Mat{A}$
+#+BEGIN_SRC jupyter-python
+
+#+END_SRC
+
+** Tercer ejercicio
+Verifique con ejemplos que el operador transposición es lineal
+#+BEGIN_SRC jupyter-python
+
+#+END_SRC
+    
+** Cuarto ejercicio
+Verifique con ejemplos la veracidad de las igualdades en las reglas de
+reescritura de la Sección 1.6 del [[https://github.com/mbujosab/CursoDeAlgebraLineal/blob/master/libro.pdf][libro]]
+#+BEGIN_SRC jupyter-python
+
+#+END_SRC
+
+
+** Quinto ejercicio
+Proporcione ejemplos de matrices 3 por 3 no nulas de los siguientes 
+tipos de matrices:
+
+- Una matriz diagonal
+#+BEGIN_SRC jupyter-python
+
+#+END_SRC
+
+- Una matriz simétrica
+#+BEGIN_SRC jupyter-python
+
+#+END_SRC
+
+
+- Una matriz triangular superior (es decir, que todos los elementos
+  por /debajo/ de la diagonal son nulos).
+#+BEGIN_SRC jupyter-python
+
+#+END_SRC
+
+- Una matriz antisimétrica (es decir, que su transpuesta es igual a su
+  opuesta: $\MatT{A}=-\Mat{A}$).
+#+BEGIN_SRC jupyter-python
+
+#+END_SRC
+
+
+
+* COMMENT Para exportar a ipynb                                   :noexports:
+
+#+BEGIN_SRC emacs-lisp :exports none :results silent
+(use-package ox-ipynb
+  :load-path (lambda () (expand-file-name "ox-ipynb" scimax-dir)))
+#+END_SRC
+
+
+#+ox-ipynb-language: jupyter-python
+#+BEGIN_SRC emacs-lisp :exports none :results silent
+(setq  org-export-with-broken-links t)
+(ox-ipynb-export-to-ipynb-file-and-open)
+#+END_SRC
+
+

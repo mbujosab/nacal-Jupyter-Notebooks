@@ -1,0 +1,413 @@
+#+TITLE: Lección 01 - Sección 1.4
+#+AUTHOR: Marcos Bujosa
+#+LANGUAGE: es-es
+#+STARTUP: show3levels
+# +STARTUP: latexpreview
+
+#+LaTeX_HEADER: \usepackage{nacal}
+
+# +OPTIONS: toc:nil
+
+#+ox-ipynb-keyword-metadata: key1 key2
+
+#+BEGIN_EXPORT latex
+\maketitle
+#+END_EXPORT
+
+# COMMENT +PROPERTY: header-args:jupyter-python :results replace raw :display text/latex 
+# COMMENT +PROPERTY: header-args:jupyter-python :results raw :results replace :display text/latex 
+# COMMENT +PROPERTY: header-args:jupyter-python :results replace drawer
+#+PROPERTY: header-args:jupyter-python :results replace
+
+/Lea primero la [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.1.4][Sección 1.4]] del [[https://mbujosab.github.io/CursoDeAlgebraLineal][libro]]./
+
+#+BEGIN_SRC jupyter-python :results silent
+from nacal import *
+#+END_SRC
+
+#+BEGIN_SRC jupyter-python  :results silent :exports none
+from IPython.display import display_png
+from sympy import preview
+#+END_SRC
+
+
+*** COMMENT para Jupyter-Notebook                                :noexports:
+\(
+\newcommand{\Rr}{{\mathbb{R}}}
+\newcommand{\Zz}{{\mathbb{Z}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\getItem}{\pmb{\mid}}
+\newcommand{\getitemR}[1]{\getItem{#1}}
+\newcommand{\getitemL}[1]{{#1}\getItem}
+\newcommand{\elemR}[2]{{#1}^{\phantom{\T}}_{\getitemR{#2}}} 
+\newcommand{\elemRP}[2]{{\big(#1\big)}^{\phantom{\T}}_{\getitemR{#2}}} 
+\newcommand{\elemRPE}[2]{\big({#1}^{\phantom{\T}}_{\getitemR{#2}}\big)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Vect}[2][{}]{{\boldsymbol{#2}}_{#1}}
+\newcommand{\eleVR}[2]  {\elemR  {\Vect{#1}}{#2}}	 % con subindices
+\newcommand{\eleVRP}[2] {\elemRP {\Vect{#1}}{#2}}      % con subindices y paréntesis interior
+\newcommand{\eleVRPE}[2]{\elemRPE{\Vect{#1}}{#2}}      % con subindices y paréntesis exterior
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\VectC}[2][{}]  {\elemR  {\Mat{#2}}{#1}}   % con subindices
+\newcommand{\VectCP}[2][{}] {\elemRP {\Mat{#2}}{#1}}   % con subindices y paréntesis
+\newcommand{\VectCPE}[2][{}]{\elemRPE{\Mat{#2}}{#1}}   % con subindices y paréntesis exterior
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\mat}[1]{\boldsymbol{\mathsf{#1}}}
+\newcommand{\Mat} [2][{}]{{\mat{#2}}_{#1}} 
+\newcommand{\T}{\intercal}
+\newcommand{\MatT}[2][{}]{{\mat{#2}}^{\T}_{#1}}
+\newcommand{\VectCC}[2][{}]   {\elemRR {\Mat{#2}}{#1}}   % con ()
+\newcommand{\VectCCC}[2][{}]  {\elemRRR{\Mat{#2}}{#1}}   % con texto "col"
+%SELECCIÓNA de FILAS y COlUMNAS DE UNA MATRIZ TRANSPUESTA PARA GENERAR UN VECTOR DE Rn
+\newcommand{\VectTC}[2][{}]   {\elemR{\MatT{#2}\!}{#1}}  % con subindices
+\newcommand{\VectTCC}[2][{}]  {\elemRR{ \MatT{#2}}{#1}}  % con ()
+\newcommand{\VectTCCC}[2][{}] {\elemRRR{\MatT{#2}}{#1}}  % con texto "col"
+\newcommand{\dotprod}[2][{}] {\Vect{#1}\cdot\Vect{#2}}
+\)
+
+
+* Matrices de $\Rr^{m\times n}$
+
+** Definiendo matrices
+En el [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.1.4][libro]] se dice que al encerrar entre corchetes una lista de
+vectores (con el mismo número de componentes) /expresamos/ la matriz
+cuyas columnas son los vectores de la citada lista. [[https://github.com/mbujosab/nacallib][NAcAL]] implementa
+dicha operación poniendo una lista o tupla de vectores con el mismo
+número de componentes como argumento de la clase ~Matrix()~.
+
+Así, si en el [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.1.4][libro]] se indica que al encerrar la lista de vectores
+$(1, 2,)$, $(1, 0,)$, y $(9, 2,)$ entre corchetes expresamos la matriz
+de $\Rr^{2\times 3}$
+
+$$\begin{bmatrix}1&1&9\\2&0&2\end{bmatrix}$$
+
+Con [[https://github.com/mbujosab/nacallib][NAcAL]] lograremos lo mismo poniendo la lista de vectores como
+argumento de la clase ~Matrix( )~
+#+BEGIN_SRC jupyter-python
+a = Vector( [1,2] )
+b = Vector( [1,0] )
+c = Vector( [9,2] )
+D = Matrix( [a,b,c] )
+#+END_SRC
+
+#+BEGIN_SRC jupyter-python
+D                     # representación de la matriz en Jupyter Notebook
+#+END_SRC
+
+También podemos instanciar una matriz mediante una lista (o tupla) de
+listas o tuplas. En este caso, estaremos describiendo la matriz fila a
+fila:
+#+BEGIN_SRC jupyter-python
+A = Matrix( ( [1,1], [2,4], [3,9] ) )
+A
+#+END_SRC
+
+Esta segunda forma de construir matrices (/fila a fila/ en lugar de
+/columna a columna/) resulta cómoda en la práctica al usar [[https://github.com/mbujosab/nacallib][NAcAL]]
+(aunque no es la descrita en el [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.1.4][libro]]).
+
+
+*** Atributo: ~.lista~
+[[https://github.com/mbujosab/nacallib][NAcAL]] almacena la lista ordenada de vectores (/de columnas/) de cada
+~Matrix()~ en su atributo ~.lista~.
+#+BEGIN_SRC jupyter-python :display text/plain
+print( A.lista )
+#+END_SRC
+
+*** Orden de la matriz. Atributos: ~.m~ y ~.n~
+El atributo ~.m~ nos indica el número de filas de la matriz y el
+atributo ~.n~ su número de columnas. Así, el orden de $\Mat{A}$ es
+#+BEGIN_SRC jupyter-python :display text/plain
+print( A.m )
+print( A.n )
+#+END_SRC
+
+*** Método: ~.sis()~
+Se puede expresar una matriz en forma de ~Sistema()~ genérico con el
+método ~.sis()~
+#+BEGIN_SRC jupyter-python
+A.sis()
+#+END_SRC
+
+
+** Seleccionando filas, columnas y componentes.
+(Secciones [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#subsection.1.4.1][1.4.1]] a [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#subsection.1.4.4][1.4.4]] del libro)
+
+Obtengamos el vector correspondiente a la /j/-ésima columna de
+$\Mat{A}$ (donde $j=2$)
+#+BEGIN_SRC jupyter-python
+A|2
+#+END_SRC
+y ahora el vector correspondiente a la /i/-ésima fila de $\Mat{A}$
+(donde $i=1$)
+#+BEGIN_SRC jupyter-python
+1|A
+#+END_SRC
+
+Podemos seleccionar la componente situada en la tercera fila y segunda 
+columna de $\Mat{A}$ del siguiente modo:
+#+BEGIN_SRC jupyter-python
+3|A|2
+#+END_SRC
+
+Cuando seleccionamos un elemento de una matriz obtenemos un número.
+(recuerde que Python implementa distintos tipos de números: tipo ~int~
+es un número entero, tipo ~float~ es un número con decimales y tipo
+~Fraction~ es un número racionales decir, un entero dividido por otro
+entero, y el su módulo [[https://www.sympy.org/es/index.html][Sympy]] implementa muchos números irracionales).
+#+BEGIN_SRC jupyter-python
+type( 1|A|1 )
+#+END_SRC
+
+
+Cuando seleccionamos una fila o una columna de una matriz obtenemos un
+~Vector()~
+#+BEGIN_SRC jupyter-python
+type( A|2 )
+#+END_SRC
+
+#+BEGIN_SRC jupyter-python
+type( 1|A )
+#+END_SRC
+
+Consecuentemente tenemos varias formas de seleccionar un elemento de
+una ~Matrix()~ (véase la Sección "[[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#subsection.1.4.4][1.4.4 Extensión de la notación
+vectorial y reglas de reescritura]]" del [[https://mbujosab.github.io/CursoDeAlgebraLineal][libro]])
+
+Por ejemplo, para obtener la componente situada en la tercera fila y
+segunda columna de $\Mat{A}$ podemos seguir estas tres vías (entre
+otras). Por ejemplo
+#+BEGIN_SRC jupyter-python
+3|A|2
+#+END_SRC
+pero también 
+#+BEGIN_SRC jupyter-python
+(A|2)|3
+#+END_SRC
+o también 
+#+BEGIN_SRC jupyter-python
+2|(3|A)
+#+END_SRC
+
+
+*** El orden de ejecución de las operaciones y la necesidad de poner paréntesis.
+En Python, la [[https://docs.python.org/3/reference/expressions.html#boolean-operations][operación booleana]] ~3|2~ da como resultado ~3~. Sabiendo
+que Python ejecuta las operaciones de izquierda a derecha ¿Cuál de los
+códigos en las dos últimas celdas no funcionará bien si quitamos los
+paréntesis?
+#+BEGIN_SRC jupyter-python
+
+#+END_SRC
+
+
+* La transpuesta
+(/[[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#subsection.1.4.5][Sección 1.4.5]] del libro/)
+
+Usando las herramientas descritas más arriba disponemos de una forma
+de transponer $\Mat{A}$: introducir como argumento de ~Matrix()~ la
+lista de las listas correspondientes a sus columnas (que es la forma
+de describir en [[https://github.com/mbujosab/nacallib][NAcAL]] una matriz fila a fila).
+
+Así, si la matriz es:
+$$\Mat{D}=\begin{bmatrix}1&1&9\\2&0&2\end{bmatrix}$$ entonces su
+transpuesta es:
+#+BEGIN_SRC jupyter-python
+Matrix( [ (D|1).lista, (D|2).lista, (D|3).lista ] )
+#+END_SRC
+
+Esto se puede automatizar con un bucle que recorra las filas de la
+matriz (usando [[https://ellibrodepython.com/list-comprehension-python][list comprehension]]):
+#+BEGIN_SRC jupyter-python
+B = Matrix ( [ (D|j).lista for j in range(1,D.n+1) ] )
+B
+#+END_SRC
+
+Si estudia el código de [[https://github.com/mbujosab/nacallib][NAcAL]] verá que la transposición está
+programada con dicho procedimiento.
+
+He buscado un símbolo en Python para indicar la operación de la
+/transposición/ al estilo del símbolo $^\T$ usado en el
+curso. Desgraciadamente Python tiene una fuerte limitación en cuanto a
+la disponibilidad de símbolos, así que nos vemos obligados a emplear
+el símbolo (~~~) para la transposición (en lugar del símbolo
+$^\T$). Además dicho símbolo ha de situarse /delante/ de la matriz que
+se quiere transponer (créame, no he encontrado ninguna alternativa
+mejor). Consecuentemente en [[https://github.com/mbujosab/nacallib][NAcAL]] la transpuesta $\MatT{D}$ se escribe
+así: ~~D~
+#+BEGIN_SRC jupyter-python
+~D
+#+END_SRC
+
+Verifiquemos que al trasponer cambian de lado los índices de los
+elementos de la matriz:
+#+BEGIN_SRC jupyter-python
+ 1|(D)|3
+#+END_SRC
+
+#+BEGIN_SRC jupyter-python
+3|(~D)|1
+#+END_SRC
+
+#+BEGIN_SRC jupyter-python
+3|(~D) == D|3
+#+END_SRC
+
+#+BEGIN_SRC jupyter-python
+(~D)|2 == 2|D
+#+END_SRC
+
+Si queremos obtener una matriz cuya única /columna/ es la segunda fila
+de $\Mat{D}$, basta instanciar una ~Matrix~ usando una lista que
+contenga dicha fila:
+#+BEGIN_SRC jupyter-python
+Matrix( [2|D] )
+#+END_SRC
+
+¿Cómo haría si lo que quiere obtener es la matriz cuya única /fila/ es
+la segunda fila de $\Mat{D}$?:
+#+BEGIN_SRC jupyter-python
+
+#+END_SRC
+
+(/al final de este notebook verá otra forma de lograr dicha matriz de una manera más compacta usando como argumento, en lugar de un índice, una tupla con un único índice/)
+
+Compruebe que la transpuesta de la transpuesta de $\Mat{D}$ es $\Mat{D}$
+#+BEGIN_SRC jupyter-python
+
+#+END_SRC
+
+    
+* Definición de algunas matrices especiales
+(/[[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#subsection.1.4.6][Sección 1.4.6]] del libro/)
+
+** Matriz nula
+Con ~M0(m,n)~ generamos una matriz nula de orden $m$ por $n$. Por ejemplo
+#+BEGIN_SRC jupyter-python
+M0(2,3)
+#+END_SRC
+
+
+** Matriz identidad
+Con ~I(m)~ generamos una matriz identidad de orden $m$. Por ejemplo
+#+BEGIN_SRC jupyter-python
+I(2)
+#+END_SRC
+
+
+** Matriz opuesta
+Con con el signo ~-~ delante de una matriz, obtenemos su opuesta
+#+BEGIN_SRC jupyter-python
+-A
+#+END_SRC
+
+
+** Matriz diagonal
+El método ~.diag()~ de ~Vector()~ devuelve una matriz diagonal
+cuadrada cuya diagonal principal contiene las componentes del vector
+empleando.
+#+BEGIN_SRC jupyter-python
+v = Vector( [1,2,3,4] )
+v.diag()
+#+END_SRC
+
+A su vez, el método ~.diag()~ de ~Matrix()~ devuelve un ~Vector()~ con
+las componentes de la diagonal principal de la matriz.
+#+BEGIN_SRC jupyter-python
+Matrix( ( [1,1,1],[2,4,8], [3,9,0] ) ).diag()
+#+END_SRC
+
+
+** Métodos que indican la forma de la matriz
+Disponemos de algunos métodos que nos indican si es cierto que una
+matriz es cuadrada o si es simétrica
+#+BEGIN_SRC jupyter-python
+A.es_cuadrada()
+#+END_SRC
+
+
+#+BEGIN_SRC jupyter-python
+I(6).es_simetrica()
+#+END_SRC
+
+
+* Definiendo una matriz a partir de las componentes de otra. Submatrices
+
+(/Esta parte corresponde al [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.alph1.1.Alph1][Apéndice]] de la Lección 1 del libro/)
+
+Cuando seleccionamos varios componentes con una tupla obtenemos una 
+submatriz. Veámoslo
+#+BEGIN_SRC jupyter-python
+B = Matrix( ( [1,1,1], [2,4,8], [3,9,0] ) )
+B
+#+END_SRC
+
+
+#+BEGIN_SRC jupyter-python
+B|(1,3,)
+#+END_SRC
+    
+#+BEGIN_SRC jupyter-python
+(2,3,)|B
+#+END_SRC
+
+
+#+BEGIN_SRC jupyter-python
+(2,3,)|B|(1,3,)
+#+END_SRC
+
+#+BEGIN_SRC jupyter-python
+(3,2,1,)|B|(3,)
+#+END_SRC
+
+#+BEGIN_SRC jupyter-python
+B|(1,1,1,1,1,)
+#+END_SRC
+
+
+Tenga en cuenta que en Python ~(2)~ es el número ~2~ entre paréntesis,
+pero ~(2,)~ es una tupla con un único componente (el ~2~). La
+diferencia es la coma "~,~" detrás del número. En el [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf][libro]] se ha
+adoptado el mismo convenio de notación para poder distinguir entre
+números y vectores de $\Rr^1$.
+#+BEGIN_SRC jupyter-python
+type( (2) )
+#+END_SRC
+
+#+BEGIN_SRC jupyter-python
+type( (2,) )
+#+END_SRC
+
+
+Fíjese que si a partir de la matriz $\Mat{D}$
+#+BEGIN_SRC jupyter-python
+D
+#+END_SRC
+queremos obtener la matriz cuya única fila es la segunda fila de
+$\Mat{D}$, lo podemos hacer así:
+#+BEGIN_SRC jupyter-python
+(2,)|D
+#+END_SRC
+que es más compacto que escribir ~~Matrix([2|D])~
+
+Usando la misma idea ¿como obtendría la matriz cuya única columna es
+la tercera columna de $\Mat{D}$ de manera alternativa a ~Matrix([D|3])~?
+#+BEGIN_SRC jupyter-python
+
+#+END_SRC
+
+
+* COMMENT Para exportar a ipynb                                 :noexports:
+
+#+BEGIN_SRC emacs-lisp :exports none :results silent
+(use-package ox-ipynb
+  :load-path (lambda () (expand-file-name "ox-ipynb" scimax-dir)))
+#+END_SRC
+
+
+#+ox-ipynb-language: jupyter-python
+#+BEGIN_SRC emacs-lisp :exports none :results silent
+(setq  org-export-with-broken-links t)
+(ox-ipynb-export-to-ipynb-file-and-open)
+#+END_SRC
+
+

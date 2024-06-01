@@ -1,0 +1,438 @@
+#+TITLE: Lección 01 - Sección 1.1
+#+AUTHOR: Marcos Bujosa
+#+LANGUAGE: es-es
+# +STARTUP: show3levels
+# +STARTUP: latexpreview
+
+#+LaTeX_HEADER: \usepackage{nacal}
+
+# +OPTIONS: toc:nil
+
+#+ox-ipynb-keyword-metadata: key1 key2
+
+
+
+#+BEGIN_EXPORT latex
+\maketitle
+#+END_EXPORT
+
+# COMMENT +PROPERTY: header-args:jupyter-python :results replace raw :display text/latex 
+# COMMENT +PROPERTY: header-args:jupyter-python :results raw :results replace :display text/latex 
+# COMMENT +PROPERTY: header-args:jupyter-python :results replace drawer
+#+PROPERTY: header-args:jupyter-python :results replace
+
+
+
+[[https://github.com/mbujosab/nacallib][NAcAL]] es un módulo de Python que implementa literalmente lo expuesto
+en el [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf][libro]]. Así, usted puede experimentar con Python empleando una
+notación similar a la empleada en clase. El [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf][libro]] y el módulo [[https://github.com/mbujosab/nacallib][NAcAL]]
+son dependientes el uno del otro y se complementan mutuamente (la
+escritura de libro ha condicionado la escritura del módulo y
+viceversa).
+
+
+
+*** Primer paso para usar [[https://github.com/mbujosab/nacallib][NAcAL]]
+    :PROPERTIES:  
+    :UNNUMBERED: t
+    :END:  
+# Esta sección no está numerada
+
+Para poder usar [[https://github.com/mbujosab/nacallib][NAcAL]] es necesario importar el módulo:
+
+#+BEGIN_SRC jupyter-python :results silent
+from nacal import *
+#+END_SRC
+
+#+BEGIN_SRC jupyter-python  :results silent :exports none
+from IPython.display import display_png
+from sympy import preview
+#+END_SRC
+
+
+*** COMMENT para Jupyter-Notebook                                :noexports:
+\(
+\newcommand{\Rr}{{\mathbb{R}}}
+\newcommand{\Zz}{{\mathbb{Z}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\getItem}{\pmb{\mid}}
+\newcommand{\getitemR}[1]{\getItem{#1}}
+\newcommand{\getitemL}[1]{{#1}\getItem}
+\newcommand{\elemR}[2]{{#1}^{\phantom{\T}}_{\getitemR{#2}}} 
+\newcommand{\elemRP}[2]{{\big(#1\big)}^{\phantom{\T}}_{\getitemR{#2}}} 
+\newcommand{\elemRPE}[2]{\big({#1}^{\phantom{\T}}_{\getitemR{#2}}\big)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Vect}[2][{}]{{\boldsymbol{#2}}_{#1}}
+\newcommand{\eleVR}[2]  {\elemR  {\Vect{#1}}{#2}}	 % con subindices
+\newcommand{\eleVRP}[2] {\elemRP {\Vect{#1}}{#2}}      % con subindices y paréntesis interior
+\newcommand{\eleVRPE}[2]{\elemRPE{\Vect{#1}}{#2}}      % con subindices y paréntesis exterior
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\VectC}[2][{}]  {\elemR  {\Mat{#2}}{#1}}   % con subindices
+\newcommand{\VectCP}[2][{}] {\elemRP {\Mat{#2}}{#1}}   % con subindices y paréntesis
+\newcommand{\VectCPE}[2][{}]{\elemRPE{\Mat{#2}}{#1}}   % con subindices y paréntesis exterior
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\mat}[1]{\boldsymbol{\mathsf{#1}}}
+\newcommand{\Mat} [2][{}]{{\mat{#2}}_{#1}} 
+\newcommand{\T}{\intercal}
+\newcommand{\MatT}[2][{}]{{\mat{#2}}^{\T}_{#1}}
+\newcommand{\VectCC}[2][{}]   {\elemRR {\Mat{#2}}{#1}}   % con ()
+\newcommand{\VectCCC}[2][{}]  {\elemRRR{\Mat{#2}}{#1}}   % con texto "col"
+%SELECCIÓNA de FILAS y COlUMNAS DE UNA MATRIZ TRANSPUESTA PARA GENERAR UN VECTOR DE Rn
+\newcommand{\VectTC}[2][{}]   {\elemR{\MatT{#2}\!}{#1}}  % con subindices
+\newcommand{\VectTCC}[2][{}]  {\elemRR{ \MatT{#2}}{#1}}  % con ()
+\newcommand{\VectTCCC}[2][{}] {\elemRRR{\MatT{#2}}{#1}}  % con texto "col"
+\newcommand{\dotprod}[2][{}] {\Vect{#1}\cdot\Vect{#2}}
+\)
+
+
+
+* Los vectores son listas de números
+
+/Antes de empezar, vea el vídeo:/ [[https://ucmdrive.ucm.es/s/NpZR32i8KPSCtps][Definición de vector de $\Rr^n$ y notación]] /y lea la introducción a la Lección 1 así como la Sección 1.1 del [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#chapter.1][libro]]./
+
+
+** Definiendo vectores
+
+En el [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.1.1][libro]] se indica que encerrando entre paréntesis una lista de $n$
+números expresamos un vector de $\Rr^n$; por ejemplo encerrando la
+lista 20, 10, 15 entre paréntesis expresamos un vector de $\Rr^3$
+
+$$\begin{pmatrix}20,&10,&15,\end{pmatrix}$$
+
+Para definir un vector en [[https://github.com/mbujosab/nacallib][NAcAL]] es necesario indicar la
+correspondiente [[https://docs.python.org/es/3/tutorial/introduction.html#lists][lista]]  de números como argumento de la clase
+~Vector()~. Por ejemplo, con la lista ~[20, 10, 15]~ obtenemos
+
+#+BEGIN_SRC jupyter-python 
+Vector( [20, 10, 15] )
+#+END_SRC
+
+Obtendremos idéntico resultado si en lugar de usar una [[https://ellibrodepython.com/listas-en-python][lista]], usamos
+la siguiente [[https://ellibrodepython.com/tuplas-python][tupla]] ~(20, 10, 15)~
+
+#+BEGIN_SRC jupyter-python :results raw
+a = (20, 10, 15)
+Vector( a )
+#+END_SRC
+
+La lista de números correspondiente a cada ~Vector~ está almacenada en
+el atributo ~.lista~
+
+#+BEGIN_SRC jupyter-python :results verbatim :display text/plain
+v = Vector( [0,1,2,3,4,5] )
+print(v.lista)
+#+END_SRC
+
+Realmente no es necesario usar la función ~print()~, basta con escribir
+~v.lista~ para ver la lista asociada al vector ~v~
+
+#+BEGIN_SRC jupyter-python :results verbatim :display text/plain
+v.lista
+#+END_SRC
+
+
+*** Haciendo copias de un vector
+Si al invocar ~Vector~ usamos como argumento otro vector obtenemos una copia de éste
+
+#+BEGIN_SRC jupyter-python :results raw
+b = Vector( a )
+b
+#+END_SRC
+
+La función ~type()~ de Python devuelve el tipo de cada objeto
+#+BEGIN_SRC jupyter-python :display text/plain
+type(b)
+#+END_SRC
+
+
+*** Representación de Vectores: el atributo ~.rpr~ de la clase ~Vector~
+Cuando el entorno de trabajo es un Notebook de Jupyter, [[https://github.com/mbujosab/nacallib][NAcAL]] muestra
+los vectores en forma de columna por defecto. Pero podemos indicar a
+Python que queremos una representación horizontal del ~Vector~, basta
+asignar el valor ~'h'~ al atributo ~rpr~. /Tenga en cuenta que esto
+solo afecta a la representación/ (el vector no cambia ya que la lista
+de números asociada sigue siendo la misma).
+
+Hagamos una copia de ~a~ con representación horizontal:
+
+#+BEGIN_SRC jupyter-python :display text/plain
+x = Vector( a, rpr='h' )
+print(x.rpr)
+#+END_SRC
+
+Pintemos el vector:
+
+#+BEGIN_SRC jupyter-python :results raw
+x
+#+END_SRC
+
+Para cambiar la representación de un vector previamente definido,
+basta cambiar el valor de su atributo ~rpr~.
+
+#+BEGIN_SRC jupyter-python :display text/plain
+x.rpr = 'col' # cualquier valor distinto de la cadena 'h' representará en columna
+print(x.rpr)
+#+END_SRC
+
+Como el atributo ~rpr~ ya no es ~'h'~ ahora el vector ~x~ es
+representado en vertical:
+#+BEGIN_SRC jupyter-python :results raw
+x
+#+END_SRC
+
+
+**** Representación de ~Vector()~ en una consola
+
+La representación en consola se limita a indicar en modo _texto_ que
+el objeto es un vector, y muestra la lista de números correspondiente
+a cada vector. Podemos ver dicha representación con la función
+~print()~
+
+#+BEGIN_SRC jupyter-python :display text/plain
+print(x)
+#+END_SRC
+
+
+*** Atributos ~.lista~ y ~.n~
+
+Ya hemos visto que [[https://github.com/mbujosab/nacallib][NAcAL]] almacena la lista ordenada de números de cada
+~Vector~ en el correspondiente atributo ~.lista~ de dicho ~Vector~
+
+#+BEGIN_SRC jupyter-python :display text/plain
+print(x.lista)
+#+END_SRC
+
+Además, el atributo ~.n~ indica el número de elementos de la lista del
+~Vector~.
+
+#+BEGIN_SRC jupyter-python :display text/plain
+v = Vector( (2, 4, 6) )
+v.n
+#+END_SRC
+
+
+*** Método ~.sis()~
+
+En el [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.1.1][libro]] se define un vector como un sistema (i.e., una lista
+ordenada) de números y se describe la correspondiente notación para
+los sistemas en general.
+
+Podemos recuperar la representación de un ~Vector~ como ~Sistema~
+genérico con el método ~.sis()~. El método ~.sis()~ devuelve el vector
+en forma de ~Sistema~ genérico y por tanto usa la correspondiente
+representación (es decir, entre corchetes y con los elementos seguidos
+por puntos y comas tal y como se indica en el [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#chapter.1][libro]]).
+
+#+BEGIN_SRC jupyter-python :results raw
+x.sis()
+#+END_SRC
+
+
+La representación en modo consola indica explícitamente que ~x.sis()~
+es un sistema
+#+BEGIN_SRC jupyter-python :display text/plain
+print(x.sis())
+#+END_SRC
+
+
+#+BEGIN_EXPORT latex
+\noindent
+#+END_EXPORT
+La función ~type()~ también nos lo dice
+#+BEGIN_SRC jupyter-python :display text/plain
+type(x.sis())
+#+END_SRC
+
+
+*** Componentes no enteras: fracciones y números irracionales
+Por una parte, con ~fracc(a,b)~ generamos la fracción
+$\frac{a}{b}$. Por otra, el módulo [[https://www.sympy.org/es/index.html][Sympy]] (que [[https://github.com/mbujosab/nacallib][NAcAL]] carga por defecto)
+tiene implementados muchos números irracionales. Generemos un vector
+con distintos tipos de números:
+
+#+BEGIN_SRC jupyter-python :results raw
+v = Vector( [7, fracc(-3, 11), sympy.sqrt(2), -sympy.pi], 'h' )
+v
+#+END_SRC
+
+
+
+** Seleccionando componentes de un ~Vector~
+
+Podemos seleccionar componentes con el operador *barra vertical* 
+(en un teclado español es la combinación de teclas ~[Alt Gr] + [1]~).
+
+Por ejemplo, seleccionemos la tercera componente del vector
+$\Vect{a}$, es decir $\eleVR{a}{3}$
+#+BEGIN_SRC jupyter-python :display text/plain
+a = Vector( [10, 20, 30, 40, 50] )
+print(a|3)
+#+END_SRC
+
+
+
+Y ahora su quinta componente
+
+#+BEGIN_SRC jupyter-python :display text/plain
+a|5
+#+END_SRC
+
+
+
+La barra vertical funciona por ambos lados del ~Vector()~ como
+selector de sus componentes
+
+#+BEGIN_SRC jupyter-python :display text/plain
+3|a
+#+END_SRC
+
+
+Cada elemento de un vector es un número. Con la función ~type()~
+podemos ver qué el tipo de número es cada uno de los elementos. Por
+ejemplo, podemos ver el tipo de cada elemento de $\Vect{v}$ (todos
+ellos distintos tipos de números).
+#+BEGIN_SRC jupyter-python :results raw
+v = Vector( [7, fracc(-3, 11), sympy.sqrt(2), -sympy.pi, 0.123], 'h' )
+v
+#+END_SRC
+
+
+#+BEGIN_SRC jupyter-python :display text/plain
+type( v|1 ) 
+#+END_SRC
+
+
+#+BEGIN_SRC jupyter-python :display text/plain
+type( v|2 ) 
+#+END_SRC
+
+
+#+BEGIN_SRC jupyter-python :display text/plain
+type( v|3 ) 
+#+END_SRC
+
+
+#+BEGIN_SRC jupyter-python :display text/plain
+type( v|4 ) 
+#+END_SRC
+
+
+#+BEGIN_SRC jupyter-python :display text/plain
+type( v|5 ) 
+#+END_SRC
+
+
+
+** Definiendo un vector a partir de las componentes de otro
+
+/Léase la Sección 1.A del apéndice de la Lección 1 del [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.alph1.1.Alph1][libro]]./
+
+Cuando seleccionamos varios componentes de un ~Vector~ con una tupla
+obtenemos un ~Vector~
+#+BEGIN_SRC jupyter-python :results raw
+a
+#+END_SRC
+
+
+Definamos un /sub-vector/ de ~a~
+#+BEGIN_SRC jupyter-python :results raw
+a|(1,3,5)
+#+END_SRC
+
+
+Definamos ahora otro vector completamente nuevo
+#+BEGIN_SRC jupyter-python :results raw
+a|(5,1,1,1,1,1,5)
+#+END_SRC
+
+
+De esta manera podemos reordenar las componentes de un vector de manera muy sencilla
+#+BEGIN_SRC jupyter-python
+a|(5,4,3,2,1)
+#+END_SRC
+
+
+
+* Definición de algunos vectores especiales
+   
+Con ~V0(n)~ generamos un vector nulo de ~n~ componentes
+#+BEGIN_SRC jupyter-python :results raw
+V0(3)
+#+END_SRC
+
+
+#+BEGIN_SRC jupyter-python :results raw
+V0(10, 'h')
+#+END_SRC
+
+
+Con con el signo ~-~ delante de un vector, obtenemos su opuesto
+#+BEGIN_SRC jupyter-python :results raw
+a = Vector( [2, 0, 2] )
+-a
+#+END_SRC
+
+
+
+* Igualdad de vectores
+/Dos vectores son iguales si lo son las correspondientes listas
+ordenadas de números/ (independientemente de si la representación es
+vertical u horizontal).
+
+Recuerde que con ~v = Vector( a )~ generamos un vector cuya
+representación es en forma de columna y cuya lista de componentes es
+la de ~a~; y que con ~w = Vector( a, rpr='h' )~ generamos otro
+vector cuya representación es en forma de fila. Veamos si, pese a su
+diferente representación, ambos vectores son iguales.
+
+El operador ~==~ comprueba si dos objetos son iguales (~True~) o si no
+lo son (~False~):
+#+BEGIN_SRC jupyter-python :display text/plain
+v = Vector( a )
+w = Vector( a, rpr='h' )
+v == w
+#+END_SRC
+
+
+#+BEGIN_SRC jupyter-python :display text/plain
+b = Vector( [-2, 0, -2] )
+a == -b
+#+END_SRC
+
+
+Dos vectores nulos con diferente número de componentes no son iguales
+#+BEGIN_SRC jupyter-python :display text/plain
+V0(2) == V0(3)
+#+END_SRC
+
+
+Con ~!=~ comprobamos si es verdadero que dos vectores son distintos
+#+BEGIN_SRC jupyter-python :display text/plain
+a != b      # ¿son distintos?
+#+END_SRC
+
+
+
+* Ayuda
+Con el comando ~help(objeto)~ obtenemos ayuda sobre el ~objeto~ y sus
+procedimientos asociados
+#+BEGIN_SRC jupyter-python :results silent :display text/plain
+help(Vector)
+#+END_SRC
+
+
+* COMMENT Para exportar a ipynb                                   :noexports:
+
+#+BEGIN_SRC emacs-lisp :exports none :results silent
+(use-package ox-ipynb
+  :load-path (lambda () (expand-file-name "ox-ipynb" scimax-dir)))
+#+END_SRC
+
+
+#+ox-ipynb-language: jupyter-python
+#+BEGIN_SRC emacs-lisp :exports none :results silent
+(setq  org-export-with-broken-links t)
+(ox-ipynb-export-to-ipynb-file-and-open)
+#+END_SRC
+
+

@@ -1,0 +1,225 @@
+#+TITLE: Lección 01 - Sección 1.2
+#+AUTHOR: Marcos Bujosa
+#+LANGUAGE: es-es
+#+STARTUP: show3levels
+# +STARTUP: latexpreview
+
+#+LaTeX_HEADER: \usepackage{nacal}
+
+# +OPTIONS: toc:nil
+
+#+ox-ipynb-keyword-metadata: key1 key2
+
+#+BEGIN_EXPORT latex
+\maketitle
+#+END_EXPORT
+
+# COMMENT +PROPERTY: header-args:jupyter-python :results replace raw :display text/latex 
+# COMMENT +PROPERTY: header-args:jupyter-python :results raw :results replace :display text/latex 
+# COMMENT +PROPERTY: header-args:jupyter-python :results replace drawer
+#+PROPERTY: header-args:jupyter-python :results replace
+
+
+#+BEGIN_SRC jupyter-python :results silent
+from nacal import *
+#+END_SRC
+
+#+BEGIN_SRC jupyter-python  :results silent :exports none
+from IPython.display import display_png
+from sympy import preview
+#+END_SRC
+
+*** COMMENT para Jupyter-Notebook                                :noexports:
+\(
+\newcommand{\Rr}{{\mathbb{R}}}
+\newcommand{\Zz}{{\mathbb{Z}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\getItem}{\pmb{\mid}}
+\newcommand{\getitemR}[1]{\getItem{#1}}
+\newcommand{\getitemL}[1]{{#1}\getItem}
+\newcommand{\elemR}[2]{{#1}^{\phantom{\T}}_{\getitemR{#2}}} 
+\newcommand{\elemRP}[2]{{\big(#1\big)}^{\phantom{\T}}_{\getitemR{#2}}} 
+\newcommand{\elemRPE}[2]{\big({#1}^{\phantom{\T}}_{\getitemR{#2}}\big)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Vect}[2][{}]{{\boldsymbol{#2}}_{#1}}
+\newcommand{\eleVR}[2]  {\elemR  {\Vect{#1}}{#2}}	 % con subindices
+\newcommand{\eleVRP}[2] {\elemRP {\Vect{#1}}{#2}}      % con subindices y paréntesis interior
+\newcommand{\eleVRPE}[2]{\elemRPE{\Vect{#1}}{#2}}      % con subindices y paréntesis exterior
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\VectC}[2][{}]  {\elemR  {\Mat{#2}}{#1}}   % con subindices
+\newcommand{\VectCP}[2][{}] {\elemRP {\Mat{#2}}{#1}}   % con subindices y paréntesis
+\newcommand{\VectCPE}[2][{}]{\elemRPE{\Mat{#2}}{#1}}   % con subindices y paréntesis exterior
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\mat}[1]{\boldsymbol{\mathsf{#1}}}
+\newcommand{\Mat} [2][{}]{{\mat{#2}}_{#1}} 
+\newcommand{\T}{\intercal}
+\newcommand{\MatT}[2][{}]{{\mat{#2}}^{\T}_{#1}}
+\newcommand{\VectCC}[2][{}]   {\elemRR {\Mat{#2}}{#1}}   % con ()
+\newcommand{\VectCCC}[2][{}]  {\elemRRR{\Mat{#2}}{#1}}   % con texto "col"
+%SELECCIÓNA de FILAS y COlUMNAS DE UNA MATRIZ TRANSPUESTA PARA GENERAR UN VECTOR DE Rn
+\newcommand{\VectTC}[2][{}]   {\elemR{\MatT{#2}\!}{#1}}  % con subindices
+\newcommand{\VectTCC}[2][{}]  {\elemRR{ \MatT{#2}}{#1}}  % con ()
+\newcommand{\VectTCCC}[2][{}] {\elemRRR{\MatT{#2}}{#1}}  % con texto "col"
+\newcommand{\dotprod}[2][{}] {\Vect{#1}\cdot\Vect{#2}}
+\)
+
+
+
+
+/Antes de empezar, vea el vídeo:/ [[https://ucmdrive.ucm.es/s/79cBa5L4bX7AKt6][Suma de vectores de $\Rr^n$]] /y lea la [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.1.2][Sección 1.2]] del [[https://mbujosab.github.io/CursoDeAlgebraLineal][libro]]./
+
+* Suma de vectores
+
+Genere los vectores $\Vect{a}$ y $\Vect{b}$:
+- el vector $\Vect{a}$ está formado por la lista de números: 1, 4, 9, 2
+- el vector $\Vect{b}$ está formado por la lista de números: 1, 2, 1, 0
+- súmelos
+#+BEGIN_SRC jupyter-python :display text/plain
+a = Vector( [1,4,9,2] )
+b = Vector( [1,2,1,0] )
+a+b
+#+END_SRC
+Después obtenga la tercera componente de la suma de ambos: 
+$\elemR{(\Vect{a}+\Vect{b})}{3}$
+#+BEGIN_SRC jupyter-python
+(a+b)|3
+#+END_SRC
+
+Ahora sume la tercera componente de $\Vect{a}$ más la tercera
+componente de $\Vect{b}:\qquad\eleVRPE{a}{3}+\eleVRPE{b}{3}$. \\
+Compruebe que obtiene el mismo resultado que obtuvo en la celda
+anterior. ¿Cómo se llama esta propiedad? (/encontrará el nombre de la
+propiedad en el [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.1.2][libro]]/)
+#+BEGIN_SRC jupyter-python :display text/plain
+(a|3) + (b|3)
+#+END_SRC
+
+
+** Orden de ejecución de operaciones y necesidad de poner paréntesis
+Ahora pruebe a quitar los paréntesis de la expresión anterior y
+ejecutar el código, verá que Python nos da un aviso de error. Se debe
+a que Python aplica las operaciones consecutivamente de izquierda a
+derecha: Python secciona la tercera componente de $\Vect{a}$ (que es
+el número ~9~) y, a continuación, trata de sumar el siguiente elemento
+de la expresión introducida, es decir, trata de sumar el vector
+$\Vect{b}$... pero no tiene sentido sumar a un número un
+vector. Consecuentemente arroja un error (/quite la almohadilla ~#~ y
+ejecute el siguiente código para verlo/).
+#+BEGIN_SRC jupyter-python
+# a|3 + b|3  
+#+END_SRC
+
+Cuando nosotros leemos la expresión: $\;\eleVR{a}{3}+\eleVR{b}{3},\;$
+realmente interpretamos que lo que pone es
+$\;\eleVRPE{a}{3}+\eleVRPE{b}{3};\;$ es decir, ponemos mentalmente los
+paréntesis. Sin embargo Python necesita que le digamos cuál es el
+orden correcto para operar. El uso de los paréntesis resuelve ese
+problema. Primero se calcula lo que hay dentro de los paréntesis y
+luego se realiza la suma (en este caso la suma de dos números).
+
+¡Tenga presente que cuando las expresiones son complicadas... incluso
+los humanos necesitamos los paréntesis para interpretar correctamente!
+Siempre que escriba en un papel una expresión matemática y dude si
+poner, o no, los paréntesis, decídase por ponerlos... es lo
+correcto. Los paréntesis se omiten solo cuando resulta /muy evidente/
+el orden de las operaciones.
+
+/Al trabajar con Python, recuerde que se ejecutan las operaciones de
+izquierda a derecha./ /No olvide la necesidad de poner paréntesis al
+trabajar con Python./
+
+
+* Producto de un vector por un escalar
+Con el producto ocurre algo parecido. Nosotros comprendemos la
+expresión: $$2\Vect{a}$$ porque realmente interpretamos:
+$$2\cdot\Vect{a}$$ (fíjese en el punto que indica el /producto/).
+Python no realiza esa extrapolación. Si usted teclea ~2a~ Python le
+mostrará un error. Compruébelo en la siguiente celda
+#+BEGIN_SRC jupyter-python
+# 2a
+#+END_SRC
+
+
+Python necesita que se le indique explícitamente la operación producto
+con el símbolo (~*~).
+#+BEGIN_SRC jupyter-python
+2*a
+#+END_SRC
+
+
+/Observación/: Tal como se ha programado el módulo [[https://github.com/mbujosab/nacallib][NAcAL]], éste admite
+la multiplicación por ambos lados... de este modo mantiene la
+asociatividad por la izquierda del operador selector (tal como se
+explica en el [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#subsection.1.4.4][libro]]).
+#+BEGIN_SRC jupyter-python
+a*2
+#+END_SRC
+
+
+Pero tenga en cuenta que una expresión como $\Vect{x}2$ nunca aparece
+en los libros de texto; el modo convencional de escribir dicho
+producto es $2\Vect{x}$, es decir, /con el coeficiente delante/).
+
+Obtenga la tercera componente del doble del vector $\Vect{a}$ es
+decir: $\elemRP{2\Vect{a}}{3}$
+#+BEGIN_SRC jupyter-python
+
+#+END_SRC
+
+
+y ahora obtenga la tercera componente de $\Vect{a}$ y multiplíquela
+por 2: $\quad 2\elemRPE{\Vect{a}}{3}$.
+#+BEGIN_SRC jupyter-python
+
+#+END_SRC
+
+
+Observe que en ambos casos se obtiene el mismo resultado. ¿Cómo se
+llama esta propiedad? (/encontrará la respuesta en el [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.1.2][libro]]/)
+
+Acabamos de constatar que el operador selector tiene dos importantes
+propiedades que lo convierten en un /operador li\dots{}/ ¿?  (/de
+nuevo encontrará la respuesta en el [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.1.2][libro]]/)
+
+
+** Orden de ejecución de operaciones y necesidad de poner paréntesis 
+
+Piense en cómo evalúa [[https://github.com/mbujosab/nacallib][NAcAL]] las siguientes expresiones?
+- ~(3*b)|2~
+- ~3*(b|2)~
+- ~3*b|2~
+#+BEGIN_SRC jupyter-python
+
+#+END_SRC
+
+#+BEGIN_SRC jupyter-python
+
+#+END_SRC
+
+#+BEGIN_SRC jupyter-python
+
+#+END_SRC
+
+
+¿Qué problema tiene la expresión ~b+b|2~?
+#+BEGIN_SRC jupyter-python
+
+#+END_SRC
+
+
+
+* COMMENT Para exportar a ipynb                                 :noexports:
+
+#+BEGIN_SRC emacs-lisp :exports none :results silent
+(use-package ox-ipynb
+  :load-path (lambda () (expand-file-name "ox-ipynb" scimax-dir)))
+#+END_SRC
+
+
+#+ox-ipynb-language: jupyter-python
+#+BEGIN_SRC emacs-lisp :exports none :results silent
+(setq  org-export-with-broken-links t)
+(ox-ipynb-export-to-ipynb-file-and-open)
+#+END_SRC
+
+
