@@ -1,0 +1,352 @@
+#+TITLE: Lección 02
+#+AUTHOR: Marcos Bujosa
+#+LANGUAGE: es-es
+# +STARTUP: show3levels
+# +STARTUP: latexpreview
+
+#+LaTeX_HEADER: \usepackage{nacal}
+
+# +OPTIONS: toc:nil
+
+#+ox-ipynb-keyword-metadata: key1 key2
+
+
+
+#+BEGIN_EXPORT latex
+\maketitle
+#+END_EXPORT
+
+# COMMENT +PROPERTY: header-args:jupyter-python :results replace raw :display text/latex 
+# COMMENT +PROPERTY: header-args:jupyter-python :results raw :results replace :display text/latex 
+# COMMENT +PROPERTY: header-args:jupyter-python :results replace drawer
+#+PROPERTY: header-args:jupyter-python :results replace
+
+/Lea primero la [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.2.1][Sección 2.1]] y la [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.2.2][Sección 2.2]] del [[https://mbujosab.github.io/CursoDeAlgebraLineal][libro]]./
+
+#+BEGIN_SRC jupyter-python :results silent
+from nacal import *
+#+END_SRC
+
+#+BEGIN_SRC jupyter-python  :results silent :exports none
+from IPython.display import display_png
+from sympy import preview
+#+END_SRC
+
+
+*** COMMENT para Jupyter-Notebook                                :noexports:
+\(
+\newcommand{\Rr}{{\mathbb{R}}}
+\newcommand{\Zz}{{\mathbb{Z}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\getItem}{\pmb{\mid}}
+\newcommand{\getitemR}[1]{\getItem{#1}}
+\newcommand{\getitemL}[1]{{#1}\getItem}
+\newcommand{\elemR}[2]{{#1}^{\phantom{\T}}_{\getitemR{#2}}} 
+\newcommand{\elemRP}[2]{{\big(#1\big)}^{\phantom{\T}}_{\getitemR{#2}}} 
+\newcommand{\elemRPE}[2]{\big({#1}^{\phantom{\T}}_{\getitemR{#2}}\big)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Vect}[2][{}]{{\boldsymbol{#2}}_{#1}}
+\newcommand{\eleVR}[2]  {\elemR  {\Vect{#1}}{#2}}	 % con subindices
+\newcommand{\eleVRP}[2] {\elemRP {\Vect{#1}}{#2}}      % con subindices y paréntesis interior
+\newcommand{\eleVRPE}[2]{\elemRPE{\Vect{#1}}{#2}}      % con subindices y paréntesis exterior
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\VectC}[2][{}]  {\elemR  {\Mat{#2}}{#1}}   % con subindices
+\newcommand{\VectCP}[2][{}] {\elemRP {\Mat{#2}}{#1}}   % con subindices y paréntesis
+\newcommand{\VectCPE}[2][{}]{\elemRPE{\Mat{#2}}{#1}}   % con subindices y paréntesis exterior
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\mat}[1]{\boldsymbol{\mathsf{#1}}}
+\newcommand{\Mat} [2][{}]{{\mat{#2}}_{#1}} 
+\newcommand{\T}{\intercal}
+\newcommand{\MatT}[2][{}]{{\mat{#2}}^{\T}_{#1}}
+\newcommand{\VectCC}[2][{}]   {\elemRR {\Mat{#2}}{#1}}   % con ()
+\newcommand{\VectCCC}[2][{}]  {\elemRRR{\Mat{#2}}{#1}}   % con texto "col"
+%SELECCIÓNA de FILAS y COlUMNAS DE UNA MATRIZ TRANSPUESTA PARA GENERAR UN VECTOR DE Rn
+\newcommand{\VectTC}[2][{}]   {\elemR{\MatT{#2}\!}{#1}}  % con subindices
+\newcommand{\VectTCC}[2][{}]  {\elemRR{ \MatT{#2}}{#1}}  % con ()
+\newcommand{\VectTCCC}[2][{}] {\elemRRR{\MatT{#2}}{#1}}  % con texto "col"
+\newcommand{\dotprod}[2][{}] {\Vect{#1}\cdot\Vect{#2}}
+\)
+
+
+
+* Matriz por vector (combinaciones lineales de las columnas de una matriz)
+
+Considere los vectores $\Vect{x}=(1, 1, -2,)$, $\Vect{y}=(1, -2, 1,)$ y
+$\Vect{z}=(-2, 1, 1,)$ y verifique que $2\Vect{x}+2\Vect{y}+2\Vect{z}=\Vect{0}$
+
+#+BEGIN_SRC jupyter-python
+x = Vector([ 1,  1, -2]);
+y = Vector([ 1, -2,  1]);
+z = Vector([-2,  1,  1])
+2*x + 2*y + 2*z
+#+END_SRC
+
+Ya sabemos que tenemos otra forma de realizar esta misma operación
+$$\begin{bmatrix} \Vect{x}; & \Vect{y}; & \Vect{z};\end{bmatrix}\begin{pmatrix}2\\2\\2\end{pmatrix}=\begin{bmatrix}1&1&-2\\1&-2&1\\-2&1&1\end{bmatrix}\begin{pmatrix}2\\2\\2\end{pmatrix}$$
+
+
+#+BEGIN_SRC jupyter-python
+Matrix([x,y,z])*Vector((2,2,2))
+#+END_SRC
+
+Sabemos que la componente /i/-ésima del vector resultante de
+multiplicar $\Mat{A}\Vect{b}$ es el producto punto entre la fila
+/i/-ésima de la matriz y el vector. Veámoslo
+
+Consideremos la matriz $\Mat{A}$
+#+BEGIN_SRC jupyter-python
+A = Matrix([ Vector([1,0,0]), Vector([1,2,0]), Vector([1,2,3]) ])
+A
+#+END_SRC
+y el vector $\Vect{b}$
+#+BEGIN_SRC jupyter-python
+b = Vector([3,2,1])
+b
+#+END_SRC
+
+El siguiente código multiplica la matriz $\Mat{A}$ por el vector $\Vect{b}$ y nos arroja un vector que es combinación lineal de las columnas de $\Mat{A}$
+#+BEGIN_SRC jupyter-python
+A*b
+#+END_SRC
+
+La segunda componente del anterior vector es 
+#+BEGIN_SRC jupyter-python
+2|(A*b)
+#+END_SRC
+
+que resulta ser el producto punto entre la segunda fila de $\Mat{A}$ y el vector $\Vect{b}$
+#+BEGIN_SRC jupyter-python
+(2|A)*b
+#+END_SRC
+
+Al final de la [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#subsection.2.2.1][Sección 2.2]] del libro se destacan dos casos especiales
+de producto de una matriz y un vector. El primer caso es multiplicar
+la matriz identidad por un vector, pues obtenemos como resultado el vector:
+#+BEGIN_SRC jupyter-python
+I(3)*b
+#+END_SRC
+
+El segundo caso especial es multiplicar una matriz $\Mat{A}$ por la
+columna /i/-ésima de la matriz identidad, pues selecciona la columna
+/i/-ésima de la matriz. Por ejemplo si multiplicamos $\Mat{A}$ por la
+segunda columna de $\Mat{I}$
+#+BEGIN_SRC jupyter-python
+I(3)|2
+#+END_SRC
+obtenemos la segunda columna de $\Mat{A}$
+#+BEGIN_SRC jupyter-python
+A * (I(3)|2)
+#+END_SRC
+
+* Propiedades del producto matriz por vector
+
+Ahora vamos a verificar con ejemplos las propiedades para el producto
+$\Mat{A}\Vect{b}$ descritas en la [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#subsection.2.2.3][Sección 2.2.3]] del libro.
+
+Genere una matriz $\Mat{A}$ (con el número de filas y columnas que
+desee) y dos vectores $\Vect{b}$ y $\Vect{c}$ con tantos componentes
+como columnas tenga $\Mat{A}$.
+
+#+BEGIN_SRC jupyter-python
+# Defina una matriz A
+
+#+END_SRC
+
+#+BEGIN_SRC jupyter-python
+# Defina el vector b con tantos componentes como columnas tenga la matriz A
+
+#+END_SRC
+
+#+BEGIN_SRC jupyter-python
+# Defina el vector c con tantos componentes como el vector b
+
+#+END_SRC
+
+Y ahora verifique las propiedades vistas en el curso 
+
+(en todos los casos, verifique sus ejemplos también con lápiz y
+papel... recuerde que primero se realizan las operaciones encerradas
+entre paréntesis).  
+
+$$ \Mat{A}(\Vect{b}+\Vect{c}) = \Mat{A}\Vect{b} + \Mat{A}\Vect{c} $$
+
+#+BEGIN_SRC jupyter-python
+# ejecute aquí la parte izquierda de la ecuación: A*(b+c)
+
+#+END_SRC
+
+#+BEGIN_SRC jupyter-python
+# ejecute aquí la parte derecha de la ecuación
+
+#+END_SRC
+
+Decida un valor para el escalar $\lambda$ y verifique que
+$$\Mat{A}(\lambda\Vect{b}) = \lambda(\Mat{A}\Vect{b})$$
+
+#+BEGIN_SRC jupyter-python
+# ejecute aquí la parte izquierda de la ecuación
+
+#+END_SRC
+
+#+BEGIN_SRC jupyter-python
+# ejecute aquí la parte derecha de la ecuación
+
+#+END_SRC
+
+Verifique que
+$$ \Mat{A}(\lambda\Vect{b}) = (\lambda\Mat{A})\Vect{b}$$
+
+#+BEGIN_SRC jupyter-python
+# escriba aquí la parte derecha de la ecuación
+
+#+END_SRC
+
+Compruebe que en este caso no son necesarios los paréntesis:
+$$\lambda\Mat{A}\Vect{b}\;$$ (pero recuerde que en Python siempre
+debemos escribir el símbolo =*= para el producto). Pruebe a colocar el
+escalar en cualquier posición, pero manteniendo la matriz a la
+izquierda del vector.
+#+BEGIN_SRC jupyter-python
+# Por ejemplo 3*A*b, o A*3*b, o A*b*3
+
+#+END_SRC
+
+Genere una matriz $\Mat{B}$ del mismo orden que $\Mat{A}$
+#+BEGIN_SRC jupyter-python
+
+#+END_SRC
+
+Verifique que
+
+$$(\Mat{A}+\Mat{B})\Vect{c} = \Mat{A}\Vect{c} + \Mat{B}\Vect{c}$$
+
+#+BEGIN_SRC jupyter-python
+# escriba aquí la parte izquierda de la ecuación (¿funciona sin paréntesis?)
+
+#+END_SRC
+
+#+BEGIN_SRC jupyter-python
+# escriba aquí la parte derecha de la ecuación
+
+#+END_SRC
+
+Genere una matriz $\Mat{B}$ con tantas filas como columnas tiene
+$\Mat{A}$ 
+#+BEGIN_SRC jupyter-python
+
+#+END_SRC
+
+y también un vector $\Vect{c}$ con tantos componentes como columnas
+tenga $\Mat{B}$
+#+BEGIN_SRC jupyter-python
+
+#+END_SRC
+
+Verifique que
+$$ \Mat{A}(\Mat{B}\Vect{c}) = \begin{bmatrix} \Mat{A}(\VectC[1]{B})&\dots&\Mat{A}(\VectC[n]{B}) \end{bmatrix} \Vect{c} $$
+
+#+BEGIN_SRC jupyter-python
+# ejecute aquí la parte izquierda de la ecuación
+
+#+END_SRC
+
+#+BEGIN_SRC jupyter-python
+# ejecute aquí la parte derecha de la ecuación
+
+#+END_SRC
+
+Hay una forma de calcular todas las columnas de la matriz de esta
+última expresión, por muchas que sean. Copie el siguiente código en la
+celda de más abajo y ejecútelo
+
+=Matrix([ A*(B|j)  for j in range(1,B.n+1)])*c=
+
+#+BEGIN_SRC jupyter-python
+
+#+END_SRC
+
+* Dos propiedades de la transposición
+
+Veamos ahora las propiedades descritas en la [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#subsection.1.5.3][Sección 1.5.3]] del libro.
+
+Recuerde que =~A= es la transpuesta de =A=.
+
+Verifique que
+$$(\Mat{A}+\Mat{B})^\T=\MatT{A}+\MatT{B}$$
+
+#+BEGIN_SRC jupyter-python
+# escriba aquí la parte izquierda de la ecuación: ~(A + B)
+
+#+END_SRC
+
+#+BEGIN_SRC jupyter-python
+# escriba aquí la parte derecha de la ecuación 
+
+#+END_SRC
+
+¿Necesitamos usar paréntesis para el lado izquierdo? ¿Y para el
+derecho?
+
+Decida un valor para $\lambda$ y verifique que
+$$(\lambda\Mat{A})^\T=\lambda(\MatT{A})$$
+
+#+BEGIN_SRC jupyter-python
+# escriba aquí la parte izquierda de la ecuación
+
+#+END_SRC
+
+#+BEGIN_SRC jupyter-python
+# escriba aquí la parte derecha de la ecuación 
+
+#+END_SRC
+
+¿Son necesarios los paréntesis para el lado izquierdo? ¿Y para el derecho?
+
+* Vector por matriz por vector (combinaciones lineales de las filas de una matriz)
+
+/Lea primero la [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.2.3][Sección 2.3]] del [[https://mbujosab.github.io/CursoDeAlgebraLineal][libro]]./
+
+En el libro (y en nuestra librería de Python) se define el producto de
+un vector $\Vect{a}$ por una matriz $\Mat{B}$ como 
+$$ \Vect{a}\Mat{B}=(\MatT{B})\Vect{a}$$
+
+Al igual que hemos hecho para el producto de una matriz por un vector,
+verifique con ejemplos las propiedades para el producto
+$\Vect{a}\Mat{B}$ descritas en la [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#subsection.2.3.1][Sección 2.3.1]] del libro.
+
+
+* Ejercicios
+
+1. Sean
+   $\Mat{A}=\begin{bmatrix}3 & -6 & 0\\0 & 2 & -2\\1 & -1 & -1\end{bmatrix}$
+   y 
+   $\Vect{x}=\begin{pmatrix}2\\1\\1\end{pmatrix}$.
+   Compruebe que $\Mat{A}\Vect{x}=\Vect{0}$.
+   #+BEGIN_SRC jupyter-python
+
+   #+END_SRC
+  ¿Puede encontrar más soluciones para $\Mat{A}\Vect{x}=\Vect{0}$? ¿Cuantas soluciones puede encontrar?
+   - /pista/ :: Intente con un vector $\Vect{x}$ cuya primera
+     componente es igual a 4. Intente también cambiando el signo de
+     $\Vect{x}$. Intente alguna solución más. 
+   #+BEGIN_SRC jupyter-python
+
+   #+END_SRC
+
+
+* COMMENT Para exportar a ipynb                                   :noexports:
+
+
+#+BEGIN_SRC emacs-lisp :exports none :results silent
+(use-package ox-ipynb
+  :load-path (lambda () (expand-file-name "ox-ipynb" scimax-dir)))
+#+END_SRC
+
+
+#+ox-ipynb-language: jupyter-python
+#+BEGIN_SRC emacs-lisp :exports none :results silent
+(setq  org-export-with-broken-links t)
+(ox-ipynb-export-to-ipynb-file-and-open)
+#+END_SRC
+
+
