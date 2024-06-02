@@ -10,6 +10,7 @@
 
 #+ox-ipynb-keyword-metadata: key1 key2
 
+#+EXPORT_FILE_NAME: ../Lecc01-Secc1.1.ipynb
 
 
 #+BEGIN_EXPORT latex

@@ -10,6 +10,10 @@
 
 #+ox-ipynb-keyword-metadata: key1 key2
 
+#+EXPORT_FILE_NAME: ../Lecc01-Secc1.5.ipynb
+
+#+call: jupyter-python()
+
 #+BEGIN_EXPORT latex
 \maketitle
 #+END_EXPORT
@@ -46,7 +50,7 @@ from sympy import preview
 \newcommand{\elemRPE}[2]{\big({#1}^{\phantom{\T}}_{\getitemR{#2}}\big)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\Vect}[2][{}]{{\boldsymbol{#2}}_{#1}}
-\newcommand{\eleVR}[2]  {\elemR  {\Vect{#1}}{#2}}	 % con subindices
+\newcommand{\eleVR}[2]  {\elemR  {\Vect{#1}}{#2}}      % con subindices
 \newcommand{\eleVRP}[2] {\elemRP {\Vect{#1}}{#2}}      % con subindices y paréntesis interior
 \newcommand{\eleVRPE}[2]{\elemRPE{\Vect{#1}}{#2}}      % con subindices y paréntesis exterior
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -183,7 +187,6 @@ con un ejemplo
 
 #+END_SRC
 
-
 * Ejercicios de la Lección 1
 
 ** Primer ejercicio
@@ -227,7 +230,6 @@ columna de $\Mat{A}$
 
 #+END_SRC
 
-
 ** Segundo ejercicio
 Calcule el siguiente vector: 3 veces la primera columna de $\Mat{A}$
 menos la segunda columna de $\Mat{A}$ mas 2 veces la tercera columna
@@ -248,7 +250,6 @@ reescritura de la Sección 1.6 del [[https://github.com/mbujosab/CursoDeAlgebraL
 #+BEGIN_SRC jupyter-python
 
 #+END_SRC
-
 
 ** Quinto ejercicio
 Proporcione ejemplos de matrices 3 por 3 no nulas de los siguientes 
