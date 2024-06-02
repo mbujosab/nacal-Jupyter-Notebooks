@@ -23,3 +23,7 @@ del repositorio/ (a veces no llega a funcionar)
 - [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc01-Secc1.2.ipynb][Lecc01-Secc1.2.ipynb]]
 - [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc01-Secc1.4.ipynb][Lecc01-Secc1.4.ipynb]]
 - [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc01-Secc1.5.ipynb][Lecc01-Secc1.5.ipynb]]
+
+*** Lección 2
+
+- [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc02.ipynb][Lecc02.ipynb]]
