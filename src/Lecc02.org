@@ -112,7 +112,7 @@ b = Vector([3,2,1])
 b
 #+END_SRC
 
-El siguiente código multiplica la matriz $\Mat{A}$ por el vector $\Vect{b}$ y nos arroja un vector que es combinación lineal de las columnas de $\Mat{A}$
+El siguiente código multiplica la matriz $\Mat{A}$ por el vector $\Vect{b}$ y nos arroja un vector que es combinación lineal de las /columnas/ de $\Mat{A}$
 #+BEGIN_SRC jupyter-python
 A*b
 #+END_SRC
@@ -317,6 +317,36 @@ $$(\lambda\Mat{A})^\T=\lambda(\MatT{A})$$
 En el libro (y en nuestra librería de Python) se define el producto de
 un vector $\Vect{a}$ por una matriz $\Mat{B}$ como 
 $$ \Vect{a}\Mat{B}=(\MatT{B})\Vect{a}$$
+
+
+Consideremos la matriz $\Mat{B}$
+#+BEGIN_SRC jupyter-python
+B = Matrix([ Vector([1,0,0]), Vector([1,2,0]), Vector([1,2,3]) ])
+B
+#+END_SRC
+y el vector $\Vect{a}$
+#+BEGIN_SRC jupyter-python
+a = Vector([3,2,1])
+a
+#+END_SRC
+
+El siguiente código multiplica el vector $\Vect{a}$ por la matriz $\Mat{B}$ y nos arroja un vector que es combinación lineal de las /filas/ de $\Mat{B}$
+#+BEGIN_SRC jupyter-python
+a*B
+#+END_SRC
+
+La segunda componente del anterior vector es 
+#+BEGIN_SRC jupyter-python
+(a*B)|2
+#+END_SRC
+
+que resulta ser el producto punto entre el vector $\Vect{a}$ y la segunda /columna/ de $\Mat{B}$
+#+BEGIN_SRC jupyter-python
+a*(B|2)
+#+END_SRC
+
+
+** Propiedades del producto vector por matriz
 
 Al igual que hemos hecho para el producto de una matriz por un vector,
 verifique con ejemplos las propiedades para el producto
