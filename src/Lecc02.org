@@ -10,7 +10,9 @@
 
 #+ox-ipynb-keyword-metadata: key1 key2
 
+#+EXPORT_FILE_NAME: ../Lecc02.ipynb
 
+#+call: GeneraNotebook()
 
 #+BEGIN_EXPORT latex
 \maketitle
@@ -44,6 +46,9 @@ from sympy import preview
 \newcommand{\elemR}[2]{{#1}^{\phantom{\T}}_{\getitemR{#2}}} 
 \newcommand{\elemRP}[2]{{\big(#1\big)}^{\phantom{\T}}_{\getitemR{#2}}} 
 \newcommand{\elemRPE}[2]{\big({#1}^{\phantom{\T}}_{\getitemR{#2}}\big)}
+\newcommand{\elemL}[2]{ {_{\getitemL{#2}}#1} }
+\newcommand{\elemLP}[2]{ {_{\getitemL{#2}}\left(#1\right)} } 
+\newcommand{\elemLPE}[2]{\left( {_{\getitemL{#2}}#1} \right)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\Vect}[2][{}]{{\boldsymbol{#2}}_{#1}}
 \newcommand{\eleVR}[2]  {\elemR  {\Vect{#1}}{#2}}	 % con subindices
@@ -52,7 +57,10 @@ from sympy import preview
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\VectC}[2][{}]  {\elemR  {\Mat{#2}}{#1}}   % con subindices
 \newcommand{\VectCP}[2][{}] {\elemRP {\Mat{#2}}{#1}}   % con subindices y paréntesis
-\newcommand{\VectCPE}[2][{}]{\elemRPE{\Mat{#2}}{#1}}   % con subindices y paréntesis exterior
+\newcommand{\VectCPE}[2][{}]{\elemRPE{\Mat{#1}}{#2}}   % con subindices y paréntesis exterior
+\newcommand{\VectF}[2]      {\elemL{\Mat{#1}}{#2}}     % con subindices
+\newcommand{\VectFP}[2]     {\elemL{(\Mat{#1})}{#2}}   % con subindices y paréntesis
+\newcommand{\VectFPE}[2]    {\elemLPE{\Mat{#1}}{#2}}   % con subindices y paréntesis exterior
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\mat}[1]{\boldsymbol{\mathsf{#1}}}
 \newcommand{\Mat} [2][{}]{{\mat{#2}}_{#1}} 
@@ -315,6 +323,57 @@ verifique con ejemplos las propiedades para el producto
 $\Vect{a}\Mat{B}$ descritas en la [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#subsection.2.3.1][Sección 2.3.1]] del libro.
 
 
+- $\Vect{a}\Mat{I}=\Vect{a}$
+  #+BEGIN_SRC jupyter-python
+
+  #+END_SRC
+  
+  #+BEGIN_SRC jupyter-python
+
+  #+END_SRC
+
+- $\VectFPE{I}{i}\Mat{A}=\VectF{A}{i}$
+  #+BEGIN_SRC jupyter-python
+
+  #+END_SRC
+
+  #+BEGIN_SRC jupyter-python
+
+  #+END_SRC
+
+- $(\Vect{a}+\Vect{b})\Mat{C}=\Vect{a}\Mat{C}+\Vect{b}\Mat{C}$
+  #+BEGIN_SRC jupyter-python
+
+  #+END_SRC
+
+  #+BEGIN_SRC jupyter-python
+
+  #+END_SRC
+
+- $(\lambda\Vect{a})\Mat{B}=\lambda(\Vect{a}\Mat{B})=\Vect{a}(\lambda\Mat{B})$
+  #+BEGIN_SRC jupyter-python
+
+  #+END_SRC
+
+  #+BEGIN_SRC jupyter-python
+
+  #+END_SRC
+
+  #+BEGIN_SRC jupyter-python
+
+  #+END_SRC
+
+- $\Vect{a}(\Mat{B}+\Mat{C})=\Vect{a}\Mat{B}+\Vect{a}\Mat{C}$
+  #+BEGIN_SRC jupyter-python
+
+  #+END_SRC
+
+  #+BEGIN_SRC jupyter-python
+
+  #+END_SRC
+
+
+
 * Ejercicios
 
 1. Sean
@@ -344,6 +403,7 @@ $\Vect{a}\Mat{B}$ descritas en la [[https://mbujosab.github.io/CursoDeAlgebraLin
 
 
 #+ox-ipynb-language: jupyter-python
+#+name: GeneraNotebook
 #+BEGIN_SRC emacs-lisp :exports none :results silent
 (setq  org-export-with-broken-links t)
 (ox-ipynb-export-to-ipynb-file-and-open)
