@@ -89,8 +89,7 @@ from sympy import preview
 
 * Los vectores son listas de números
 
-/Antes de empezar, vea el vídeo:/ [[https://ucmdrive.ucm.es/s/NpZR32i8KPSCtps][Definición de vector de $\Rr^n$ y notación]] /y lea la introducción a la Lección 1 así como la Sección 1.1 del [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#chapter.1][libro]]./
-
+/Antes de empezar, vea el vídeo:/ [[https://ucmdrive.ucm.es/s/rqPSoaiYW4dmTyx][Definición de vector de $\Rr^n$ y notación]] /y lea la introducción a la Lección 1 así como la Sección 1.1 del [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#chapter.1][libro]]./
 
 ** Definiendo vectores
 

@@ -67,11 +67,9 @@ from sympy import preview
 \)
 
 
-
-
-/Antes de empezar, vea el vídeo:/ [[https://ucmdrive.ucm.es/s/79cBa5L4bX7AKt6][Suma de vectores de $\Rr^n$]] /y lea la [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.1.2][Sección 1.2]] del [[https://mbujosab.github.io/CursoDeAlgebraLineal][libro]]./
-
 * Suma de vectores
+
+/Antes de empezar, vea el vídeo:/ [[https://ucmdrive.ucm.es/s/9LTcbLSW3HknBMa][Suma de vectores de $\Rr^n$]] /y lea la [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.1.2][Sección 1.2]] del [[https://mbujosab.github.io/CursoDeAlgebraLineal][libro]]./
 
 Genere los vectores $\Vect{a}$ y $\Vect{b}$:
 - el vector $\Vect{a}$ está formado por la lista de números: 1, 4, 9, 2
