@@ -4,13 +4,75 @@
 # +STARTUP: show3levels
 # +STARTUP: latexpreview
 
-#+LaTeX_HEADER: \usepackage{nacal}
+# +LaTeX_HEADER: \input{notacionLinAlg.latex}
+#+LaTeX_HEADER: \newcommand{\R}[1][{}]{{\mathbb{R}}^{#1}}
+#+LaTeX_HEADER: \newcommand{\Z}[1][{}]{{\mathbb{Z}}^{#1}}
+#+LaTeX_HEADER: %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#+LaTeX_HEADER: \newcommand{\getItem}{\pmb{\mid}}
+#+LaTeX_HEADER: \newcommand{\getitemR}[1]{\getItem{#1}}
+#+LaTeX_HEADER: \newcommand{\getitemL}[1]{{#1}\getItem}
+#+LaTeX_HEADER: \newcommand{\elemR}[2]{{#1}^{\phantom{\T}}_{\getitemR{#2}}} 
+#+LaTeX_HEADER: \newcommand{\elemRP}[2]{{\big(#1\big)}^{\phantom{\T}}_{\getitemR{#2}}} 
+#+LaTeX_HEADER: \newcommand{\elemRPE}[2]{\big({#1}^{\phantom{\T}}_{\getitemR{#2}}\big)}
+#+LaTeX_HEADER: %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#+LaTeX_HEADER: \newcommand{\Vect}[2][{}]{{\boldsymbol{#2}}_{#1}}
+#+LaTeX_HEADER: \newcommand{\eleVR}[2]  {\elemR  {\Vect{#1}}{#2}}	 % con subindices
+#+LaTeX_HEADER: \newcommand{\eleVRP}[2] {\elemRP {\Vect{#1}}{#2}}      % con subindices y paréntesis interior
+#+LaTeX_HEADER: \newcommand{\eleVRPE}[2]{\elemRPE{\Vect{#1}}{#2}}      % con subindices y paréntesis exterior
+#+LaTeX_HEADER: %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#+LaTeX_HEADER: \newcommand{\VectC}[2][{}]  {\elemR  {\Mat{#2}}{#1}}   % con subindices
+#+LaTeX_HEADER: \newcommand{\VectCP}[2][{}] {\elemRP {\Mat{#2}}{#1}}   % con subindices y paréntesis
+#+LaTeX_HEADER: \newcommand{\VectCPE}[2][{}]{\elemRPE{\Mat{#2}}{#1}}   % con subindices y paréntesis exterior
+#+LaTeX_HEADER: %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#+LaTeX_HEADER: \newcommand{\mat}[1]{\mathbf{#1}}
+#+LaTeX_HEADER: \newcommand{\Mat} [2][{}]{{\mat{#2}}_{#1}} 
+#+LaTeX_HEADER: \newcommand{\T}{\intercal}
+#+LaTeX_HEADER: \newcommand{\MatT}[2][{}]{{\mat{#2}}^{\T}_{#1}}
+#+LaTeX_HEADER: \newcommand{\VectCC}[2][{}]   {\elemRR {\Mat{#2}}{#1}}   % con ()
+#+LaTeX_HEADER: \newcommand{\VectCCC}[2][{}]  {\elemRRR{\Mat{#2}}{#1}}   % con texto "col"
+#+LaTeX_HEADER: %SELECCIÓNA de FILAS y COlUMNAS DE UNA MATRIZ TRANSPUESTA PARA GENERAR UN VECTOR DE Rn
+#+LaTeX_HEADER: \newcommand{\VectTC}[2][{}]   {\elemR{\MatT{#2}\!}{#1}}  % con subindices
+#+LaTeX_HEADER: \newcommand{\VectTCC}[2][{}]  {\elemRR{ \MatT{#2}}{#1}}  % con ()
+#+LaTeX_HEADER: \newcommand{\VectTCCC}[2][{}] {\elemRRR{\MatT{#2}}{#1}}  % con texto "col"
+#+LaTeX_HEADER: \newcommand{\dotprod}[2][{}] {\Vect{#1}\cdot\Vect{#2}}
 
 # +OPTIONS: toc:nil
 
 #+ox-ipynb-keyword-metadata: key1 key2
 
-#+EXPORT_FILE_NAME: ../Lecc01-Secc1.1.ipynb
+*** COMMENT para Jupyter-Notebook                                :noexports:
+\(
+\newcommand{\R}[1][{}]{{\mathbb{R}}^{#1}}
+\newcommand{\Z}[1][{}]{{\mathbb{Z}}^{#1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\getItem}{\pmb{\mid}}
+\newcommand{\getitemR}[1]{\getItem{#1}}
+\newcommand{\getitemL}[1]{{#1}\getItem}
+\newcommand{\elemR}[2]{{#1}^{\phantom{\T}}_{\getitemR{#2}}} 
+\newcommand{\elemRP}[2]{{\big(#1\big)}^{\phantom{\T}}_{\getitemR{#2}}} 
+\newcommand{\elemRPE}[2]{\big({#1}^{\phantom{\T}}_{\getitemR{#2}}\big)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Vect}[2][{}]{{\boldsymbol{#2}}_{#1}}
+\newcommand{\eleVR}[2]  {\elemR  {\Vect{#1}}{#2}}	 % con subindices
+\newcommand{\eleVRP}[2] {\elemRP {\Vect{#1}}{#2}}      % con subindices y paréntesis interior
+\newcommand{\eleVRPE}[2]{\elemRPE{\Vect{#1}}{#2}}      % con subindices y paréntesis exterior
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\VectC}[2][{}]  {\elemR  {\Mat{#2}}{#1}}   % con subindices
+\newcommand{\VectCP}[2][{}] {\elemRP {\Mat{#2}}{#1}}   % con subindices y paréntesis
+\newcommand{\VectCPE}[2][{}]{\elemRPE{\Mat{#2}}{#1}}   % con subindices y paréntesis exterior
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\mat}[1]{\mathbf{#1}}
+\newcommand{\Mat} [2][{}]{{\mat{#2}}_{#1}} 
+\newcommand{\T}{\intercal}
+\newcommand{\MatT}[2][{}]{{\mat{#2}}^{\T}_{#1}}
+\newcommand{\VectCC}[2][{}]   {\elemRR {\Mat{#2}}{#1}}   % con ()
+\newcommand{\VectCCC}[2][{}]  {\elemRRR{\Mat{#2}}{#1}}   % con texto "col"
+%SELECCIÓNA de FILAS y COlUMNAS DE UNA MATRIZ TRANSPUESTA PARA GENERAR UN VECTOR DE Rn
+\newcommand{\VectTC}[2][{}]   {\elemR{\MatT{#2}\!}{#1}}  % con subindices
+\newcommand{\VectTCC}[2][{}]  {\elemRR{ \MatT{#2}}{#1}}  % con ()
+\newcommand{\VectTCCC}[2][{}] {\elemRRR{\MatT{#2}}{#1}}  % con texto "col"
+\newcommand{\dotprod}[2][{}] {\Vect{#1}\cdot\Vect{#2}}
+\)
 
 
 #+BEGIN_EXPORT latex
@@ -32,7 +94,6 @@ escritura de libro ha condicionado la escritura del módulo y
 viceversa).
 
 
-
 *** Primer paso para usar [[https://github.com/mbujosab/nacallib][NAcAL]]
     :PROPERTIES:  
     :UNNUMBERED: t
@@ -43,6 +104,7 @@ Para poder usar [[https://github.com/mbujosab/nacallib][NAcAL]] es necesario imp
 
 #+BEGIN_SRC jupyter-python :results silent
 from nacal import *
+from IPython.display import YouTubeVideo
 #+END_SRC
 
 #+BEGIN_SRC jupyter-python  :results silent :exports none
@@ -51,51 +113,24 @@ from sympy import preview
 #+END_SRC
 
 
-*** COMMENT para Jupyter-Notebook                                :noexports:
-\(
-\newcommand{\Rr}{{\mathbb{R}}}
-\newcommand{\Zz}{{\mathbb{Z}}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\getItem}{\pmb{\mid}}
-\newcommand{\getitemR}[1]{\getItem{#1}}
-\newcommand{\getitemL}[1]{{#1}\getItem}
-\newcommand{\elemR}[2]{{#1}^{\phantom{\T}}_{\getitemR{#2}}} 
-\newcommand{\elemRP}[2]{{\big(#1\big)}^{\phantom{\T}}_{\getitemR{#2}}} 
-\newcommand{\elemRPE}[2]{\big({#1}^{\phantom{\T}}_{\getitemR{#2}}\big)}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\Vect}[2][{}]{{\boldsymbol{#2}}_{#1}}
-\newcommand{\eleVR}[2]  {\elemR  {\Vect{#1}}{#2}}	 % con subindices
-\newcommand{\eleVRP}[2] {\elemRP {\Vect{#1}}{#2}}      % con subindices y paréntesis interior
-\newcommand{\eleVRPE}[2]{\elemRPE{\Vect{#1}}{#2}}      % con subindices y paréntesis exterior
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\VectC}[2][{}]  {\elemR  {\Mat{#2}}{#1}}   % con subindices
-\newcommand{\VectCP}[2][{}] {\elemRP {\Mat{#2}}{#1}}   % con subindices y paréntesis
-\newcommand{\VectCPE}[2][{}]{\elemRPE{\Mat{#2}}{#1}}   % con subindices y paréntesis exterior
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\mat}[1]{\boldsymbol{\mathsf{#1}}}
-\newcommand{\Mat} [2][{}]{{\mat{#2}}_{#1}} 
-\newcommand{\T}{\intercal}
-\newcommand{\MatT}[2][{}]{{\mat{#2}}^{\T}_{#1}}
-\newcommand{\VectCC}[2][{}]   {\elemRR {\Mat{#2}}{#1}}   % con ()
-\newcommand{\VectCCC}[2][{}]  {\elemRRR{\Mat{#2}}{#1}}   % con texto "col"
-%SELECCIÓNA de FILAS y COlUMNAS DE UNA MATRIZ TRANSPUESTA PARA GENERAR UN VECTOR DE Rn
-\newcommand{\VectTC}[2][{}]   {\elemR{\MatT{#2}\!}{#1}}  % con subindices
-\newcommand{\VectTCC}[2][{}]  {\elemRR{ \MatT{#2}}{#1}}  % con ()
-\newcommand{\VectTCCC}[2][{}] {\elemRRR{\MatT{#2}}{#1}}  % con texto "col"
-\newcommand{\dotprod}[2][{}] {\Vect{#1}\cdot\Vect{#2}}
-\)
-
-
-
 * Los vectores son listas de números
 
-/Antes de empezar, vea el vídeo:/ [[https://ucmdrive.ucm.es/s/rqPSoaiYW4dmTyx][Definición de vector de $\Rr^n$ y notación]] /y lea la introducción a la Lección 1 así como la Sección 1.1 del [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#chapter.1][libro]]./
+/Antes de empezar, vea el siguiente vídeo y lea la introducción a la
+ Lección 1 así como la Sección 1.1 del [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#chapter.1][libro]]./
+
+#+BEGIN_SRC jupyter-python
+YouTubeVideo('HWaQrbSc8WA')  # ejecute este bloque de código para ver el vídeo
+#+END_SRC
+
+#+RESULTS:
+[[./.ob-jupyter/7a3186016474f1e01518e0501270494f192383d6.jpg]]
+
 
 ** Definiendo vectores
 
 En el [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.1.1][libro]] se indica que encerrando entre paréntesis una lista de $n$
-números expresamos un vector de $\Rr^n$; por ejemplo encerrando la
-lista 20, 10, 15 entre paréntesis expresamos un vector de $\Rr^3$
+números expresamos un vector de $\R[n]$; por ejemplo encerrando la
+lista 20, 10, 15 entre paréntesis expresamos un vector de $\R[3]$
 
 $$\begin{pmatrix}20,&10,&15,\end{pmatrix}$$
 
@@ -149,14 +184,14 @@ type(b)
 Cuando el entorno de trabajo es un Notebook de Jupyter, [[https://github.com/mbujosab/nacallib][NAcAL]] muestra
 los vectores en forma de columna por defecto. Pero podemos indicar a
 Python que queremos una representación horizontal del ~Vector~, basta
-asignar el valor ~'h'~ al atributo ~rpr~. /Tenga en cuenta que esto
+asignar el valor ~'fila'~ al atributo ~rpr~. /Tenga en cuenta que esto
 solo afecta a la representación/ (el vector no cambia ya que la lista
 de números asociada sigue siendo la misma).
 
-Hagamos una copia de ~a~ con representación horizontal:
+Hagamos una copia de ~a~ con representación ~fila~:
 
 #+BEGIN_SRC jupyter-python :display text/plain
-x = Vector( a, rpr='h' )
+x = Vector( a, rpr='fila' )
 print(x.rpr)
 #+END_SRC
 
@@ -170,11 +205,11 @@ Para cambiar la representación de un vector previamente definido,
 basta cambiar el valor de su atributo ~rpr~.
 
 #+BEGIN_SRC jupyter-python :display text/plain
-x.rpr = 'col' # cualquier valor distinto de la cadena 'h' representará en columna
+x.rpr = 'col' # cualquier valor distinto de la cadena 'fila' representará en columna
 print(x.rpr)
 #+END_SRC
 
-Como el atributo ~rpr~ ya no es ~'h'~ ahora el vector ~x~ es
+Como el atributo ~rpr~ ya no es ~'fila'~ ahora el vector ~x~ es
 representado en vertical:
 #+BEGIN_SRC jupyter-python :results raw
 x
@@ -251,7 +286,7 @@ tiene implementados muchos números irracionales. Generemos un vector
 con distintos tipos de números:
 
 #+BEGIN_SRC jupyter-python :results raw
-v = Vector( [7, fracc(-3, 11), sympy.sqrt(2), -sympy.pi], 'h' )
+v = Vector( [7, fracc(-3, 11), sympy.sqrt(2), -sympy.pi], 'fila' )
 v
 #+END_SRC
 
@@ -292,7 +327,7 @@ podemos ver qué el tipo de número es cada uno de los elementos. Por
 ejemplo, podemos ver el tipo de cada elemento de $\Vect{v}$ (todos
 ellos distintos tipos de números).
 #+BEGIN_SRC jupyter-python :results raw
-v = Vector( [7, fracc(-3, 11), sympy.sqrt(2), -sympy.pi, 0.123], 'h' )
+v = Vector( [7, fracc(-3, 11), sympy.sqrt(2), -sympy.pi, 0.123], 'fila' )
 v
 #+END_SRC
 
@@ -362,7 +397,7 @@ V0(3)
 
 
 #+BEGIN_SRC jupyter-python :results raw
-V0(10, 'h')
+V0(10, 'fila')
 #+END_SRC
 
 
@@ -381,7 +416,7 @@ vertical u horizontal).
 
 Recuerde que con ~v = Vector( a )~ generamos un vector cuya
 representación es en forma de columna y cuya lista de componentes es
-la de ~a~; y que con ~w = Vector( a, rpr='h' )~ generamos otro
+la de ~a~; y que con ~w = Vector( a, rpr='fila' )~ generamos otro
 vector cuya representación es en forma de fila. Veamos si, pese a su
 diferente representación, ambos vectores son iguales.
 
@@ -389,7 +424,7 @@ El operador ~==~ comprueba si dos objetos son iguales (~True~) o si no
 lo son (~False~):
 #+BEGIN_SRC jupyter-python :display text/plain
 v = Vector( a )
-w = Vector( a, rpr='h' )
+w = Vector( a, rpr='fila' )
 v == w
 #+END_SRC
 

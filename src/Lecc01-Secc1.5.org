@@ -4,15 +4,41 @@
 #+STARTUP: show3levels
 # +STARTUP: latexpreview
 
-#+LaTeX_HEADER: \usepackage{nacal}
+# +LaTeX_HEADER: \input{notacionLinAlg.latex}
+#+LaTeX_HEADER: \newcommand{\R}[1][{}]{{\mathbb{R}}^{#1}}
+#+LaTeX_HEADER: \newcommand{\Z}[1][{}]{{\mathbb{Z}}^{#1}}
+#+LaTeX_HEADER: %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#+LaTeX_HEADER: \newcommand{\getItem}{\pmb{\mid}}
+#+LaTeX_HEADER: \newcommand{\getitemR}[1]{\getItem{#1}}
+#+LaTeX_HEADER: \newcommand{\getitemL}[1]{{#1}\getItem}
+#+LaTeX_HEADER: \newcommand{\elemR}[2]{{#1}^{\phantom{\T}}_{\getitemR{#2}}} 
+#+LaTeX_HEADER: \newcommand{\elemRP}[2]{{\big(#1\big)}^{\phantom{\T}}_{\getitemR{#2}}} 
+#+LaTeX_HEADER: \newcommand{\elemRPE}[2]{\big({#1}^{\phantom{\T}}_{\getitemR{#2}}\big)}
+#+LaTeX_HEADER: %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#+LaTeX_HEADER: \newcommand{\Vect}[2][{}]{{\boldsymbol{#2}}_{#1}}
+#+LaTeX_HEADER: \newcommand{\eleVR}[2]  {\elemR  {\Vect{#1}}{#2}}	 % con subindices
+#+LaTeX_HEADER: \newcommand{\eleVRP}[2] {\elemRP {\Vect{#1}}{#2}}      % con subindices y paréntesis interior
+#+LaTeX_HEADER: \newcommand{\eleVRPE}[2]{\elemRPE{\Vect{#1}}{#2}}      % con subindices y paréntesis exterior
+#+LaTeX_HEADER: %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#+LaTeX_HEADER: \newcommand{\VectC}[2][{}]  {\elemR  {\Mat{#2}}{#1}}   % con subindices
+#+LaTeX_HEADER: \newcommand{\VectCP}[2][{}] {\elemRP {\Mat{#2}}{#1}}   % con subindices y paréntesis
+#+LaTeX_HEADER: \newcommand{\VectCPE}[2][{}]{\elemRPE{\Mat{#2}}{#1}}   % con subindices y paréntesis exterior
+#+LaTeX_HEADER: %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#+LaTeX_HEADER: \newcommand{\mat}[1]{\mathbf{#1}}
+#+LaTeX_HEADER: \newcommand{\Mat} [2][{}]{{\mat{#2}}_{#1}} 
+#+LaTeX_HEADER: \newcommand{\T}{\intercal}
+#+LaTeX_HEADER: \newcommand{\MatT}[2][{}]{{\mat{#2}}^{\T}_{#1}}
+#+LaTeX_HEADER: \newcommand{\VectCC}[2][{}]   {\elemRR {\Mat{#2}}{#1}}   % con ()
+#+LaTeX_HEADER: \newcommand{\VectCCC}[2][{}]  {\elemRRR{\Mat{#2}}{#1}}   % con texto "col"
+#+LaTeX_HEADER: %SELECCIÓNA de FILAS y COlUMNAS DE UNA MATRIZ TRANSPUESTA PARA GENERAR UN VECTOR DE Rn
+#+LaTeX_HEADER: \newcommand{\VectTC}[2][{}]   {\elemR{\MatT{#2}\!}{#1}}  % con subindices
+#+LaTeX_HEADER: \newcommand{\VectTCC}[2][{}]  {\elemRR{ \MatT{#2}}{#1}}  % con ()
+#+LaTeX_HEADER: \newcommand{\VectTCCC}[2][{}] {\elemRRR{\MatT{#2}}{#1}}  % con texto "col"
+#+LaTeX_HEADER: \newcommand{\dotprod}[2][{}] {\Vect{#1}\cdot\Vect{#2}}
 
 # +OPTIONS: toc:nil
 
 #+ox-ipynb-keyword-metadata: key1 key2
-
-#+EXPORT_FILE_NAME: ../Lecc01-Secc1.5.ipynb
-
-#+call: jupyter-python()
 
 #+BEGIN_EXPORT latex
 \maketitle
@@ -24,7 +50,8 @@
 #+PROPERTY: header-args:jupyter-python :results replace
 
 
-/Lea primero la [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.1.5][Sección 1.5]] y [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.1.6][Sección 1.6]] de la Lección 1 del [[https://mbujosab.github.io/CursoDeAlgebraLineal][libro]]./
+/Lea primero la [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.1.5][Sección 1.5]] y [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.1.6][Sección 1.6]] de la Lección 1 del libro./
+([[https://mbujosab.github.io/CursoDeAlgebraLineal]])
 
 
 #+BEGIN_SRC jupyter-python :results silent
@@ -39,8 +66,8 @@ from sympy import preview
 
 *** COMMENT para Jupyter-Notebook                                :noexports:
 \(
-\newcommand{\Rr}{{\mathbb{R}}}
-\newcommand{\Zz}{{\mathbb{Z}}}
+\newcommand{\R}[1][{}]{{\mathbb{R}}^{#1}}
+\newcommand{\Z}[1][{}]{{\mathbb{Z}}^{#1}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\getItem}{\pmb{\mid}}
 \newcommand{\getitemR}[1]{\getItem{#1}}
@@ -50,7 +77,7 @@ from sympy import preview
 \newcommand{\elemRPE}[2]{\big({#1}^{\phantom{\T}}_{\getitemR{#2}}\big)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\Vect}[2][{}]{{\boldsymbol{#2}}_{#1}}
-\newcommand{\eleVR}[2]  {\elemR  {\Vect{#1}}{#2}}      % con subindices
+\newcommand{\eleVR}[2]  {\elemR  {\Vect{#1}}{#2}}	 % con subindices
 \newcommand{\eleVRP}[2] {\elemRP {\Vect{#1}}{#2}}      % con subindices y paréntesis interior
 \newcommand{\eleVRPE}[2]{\elemRPE{\Vect{#1}}{#2}}      % con subindices y paréntesis exterior
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -58,7 +85,7 @@ from sympy import preview
 \newcommand{\VectCP}[2][{}] {\elemRP {\Mat{#2}}{#1}}   % con subindices y paréntesis
 \newcommand{\VectCPE}[2][{}]{\elemRPE{\Mat{#2}}{#1}}   % con subindices y paréntesis exterior
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\mat}[1]{\boldsymbol{\mathsf{#1}}}
+\newcommand{\mat}[1]{\mathbf{#1}}
 \newcommand{\Mat} [2][{}]{{\mat{#2}}_{#1}} 
 \newcommand{\T}{\intercal}
 \newcommand{\MatT}[2][{}]{{\mat{#2}}^{\T}_{#1}}
@@ -137,7 +164,7 @@ es la primera columna de su transpuesta
 Si además queremos que la representación de la primera fila sea en
 forma de fila, podemos hacerlo del siguiente modo:
 #+BEGIN_SRC jupyter-python
-Vector( (~A)|1, rpr='h')
+Vector( (~A)|1, rpr='fila')
 #+END_SRC
 
 Siguiendo la notación del [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#subsection.1.4.5][libro]], definamos una matriz cuya única fila
@@ -187,6 +214,7 @@ con un ejemplo
 
 #+END_SRC
 
+
 * Ejercicios de la Lección 1
 
 ** Primer ejercicio
@@ -230,6 +258,7 @@ columna de $\Mat{A}$
 
 #+END_SRC
 
+
 ** Segundo ejercicio
 Calcule el siguiente vector: 3 veces la primera columna de $\Mat{A}$
 menos la segunda columna de $\Mat{A}$ mas 2 veces la tercera columna
@@ -240,9 +269,6 @@ menos 3 veces la última columna de $\Mat{A}$
 
 ** Tercer ejercicio
 Verifique con ejemplos que el operador transposición es lineal
-#+BEGIN_SRC jupyter-python
-
-#+END_SRC
     
 ** Cuarto ejercicio
 Verifique con ejemplos la veracidad de las igualdades en las reglas de
@@ -250,6 +276,7 @@ reescritura de la Sección 1.6 del [[https://github.com/mbujosab/CursoDeAlgebraL
 #+BEGIN_SRC jupyter-python
 
 #+END_SRC
+
 
 ** Quinto ejercicio
 Proporcione ejemplos de matrices 3 por 3 no nulas de los siguientes 
@@ -280,7 +307,7 @@ tipos de matrices:
 
 
 
-* COMMENT Para exportar a ipynb                                   :noexports:
+* COMMENT Para exportar a ipynb                                 :noexports:
 
 #+BEGIN_SRC emacs-lisp :exports none :results silent
 (use-package ox-ipynb

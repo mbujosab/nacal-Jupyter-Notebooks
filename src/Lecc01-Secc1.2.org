@@ -4,14 +4,41 @@
 #+STARTUP: show3levels
 # +STARTUP: latexpreview
 
-#+LaTeX_HEADER: \usepackage{nacal}
+# +LaTeX_HEADER: \input{notacionLinAlg.latex}
+#+LaTeX_HEADER: \newcommand{\R}[1][{}]{{\mathbb{R}}^{#1}}
+#+LaTeX_HEADER: \newcommand{\Z}[1][{}]{{\mathbb{Z}}^{#1}}
+#+LaTeX_HEADER: %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#+LaTeX_HEADER: \newcommand{\getItem}{\pmb{\mid}}
+#+LaTeX_HEADER: \newcommand{\getitemR}[1]{\getItem{#1}}
+#+LaTeX_HEADER: \newcommand{\getitemL}[1]{{#1}\getItem}
+#+LaTeX_HEADER: \newcommand{\elemR}[2]{{#1}^{\phantom{\T}}_{\getitemR{#2}}} 
+#+LaTeX_HEADER: \newcommand{\elemRP}[2]{{\big(#1\big)}^{\phantom{\T}}_{\getitemR{#2}}} 
+#+LaTeX_HEADER: \newcommand{\elemRPE}[2]{\big({#1}^{\phantom{\T}}_{\getitemR{#2}}\big)}
+#+LaTeX_HEADER: %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#+LaTeX_HEADER: \newcommand{\Vect}[2][{}]{{\boldsymbol{#2}}_{#1}}
+#+LaTeX_HEADER: \newcommand{\eleVR}[2]  {\elemR  {\Vect{#1}}{#2}}	 % con subindices
+#+LaTeX_HEADER: \newcommand{\eleVRP}[2] {\elemRP {\Vect{#1}}{#2}}      % con subindices y paréntesis interior
+#+LaTeX_HEADER: \newcommand{\eleVRPE}[2]{\elemRPE{\Vect{#1}}{#2}}      % con subindices y paréntesis exterior
+#+LaTeX_HEADER: %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#+LaTeX_HEADER: \newcommand{\VectC}[2][{}]  {\elemR  {\Mat{#2}}{#1}}   % con subindices
+#+LaTeX_HEADER: \newcommand{\VectCP}[2][{}] {\elemRP {\Mat{#2}}{#1}}   % con subindices y paréntesis
+#+LaTeX_HEADER: \newcommand{\VectCPE}[2][{}]{\elemRPE{\Mat{#2}}{#1}}   % con subindices y paréntesis exterior
+#+LaTeX_HEADER: %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#+LaTeX_HEADER: \newcommand{\mat}[1]{\mathbf{#1}}
+#+LaTeX_HEADER: \newcommand{\Mat} [2][{}]{{\mat{#2}}_{#1}} 
+#+LaTeX_HEADER: \newcommand{\T}{\intercal}
+#+LaTeX_HEADER: \newcommand{\MatT}[2][{}]{{\mat{#2}}^{\T}_{#1}}
+#+LaTeX_HEADER: \newcommand{\VectCC}[2][{}]   {\elemRR {\Mat{#2}}{#1}}   % con ()
+#+LaTeX_HEADER: \newcommand{\VectCCC}[2][{}]  {\elemRRR{\Mat{#2}}{#1}}   % con texto "col"
+#+LaTeX_HEADER: %SELECCIÓNA de FILAS y COlUMNAS DE UNA MATRIZ TRANSPUESTA PARA GENERAR UN VECTOR DE Rn
+#+LaTeX_HEADER: \newcommand{\VectTC}[2][{}]   {\elemR{\MatT{#2}\!}{#1}}  % con subindices
+#+LaTeX_HEADER: \newcommand{\VectTCC}[2][{}]  {\elemRR{ \MatT{#2}}{#1}}  % con ()
+#+LaTeX_HEADER: \newcommand{\VectTCCC}[2][{}] {\elemRRR{\MatT{#2}}{#1}}  % con texto "col"
+#+LaTeX_HEADER: \newcommand{\dotprod}[2][{}] {\Vect{#1}\cdot\Vect{#2}}
 
 # +OPTIONS: toc:nil
 
 #+ox-ipynb-keyword-metadata: key1 key2
-
-#+EXPORT_FILE_NAME: ../Lecc01-Secc1.2.ipynb
-
 
 #+BEGIN_EXPORT latex
 \maketitle
@@ -25,6 +52,7 @@
 
 #+BEGIN_SRC jupyter-python :results silent
 from nacal import *
+from IPython.display import YouTubeVideo
 #+END_SRC
 
 #+BEGIN_SRC jupyter-python  :results silent :exports none
@@ -32,10 +60,21 @@ from IPython.display import display_png
 from sympy import preview
 #+END_SRC
 
+/Vea primero el siguiente vídeo y lea la [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.1.2][Sección 1.2]] de la Lección 1 del libro/ 
+([[https://mbujosab.github.io/CursoDeAlgebraLineal]])
+
+#+BEGIN_SRC jupyter-python
+YouTubeVideo('LvcerzXX3IM')  # ejecute este bloque de código para ver el vídeo
+#+END_SRC
+
+#+RESULTS:
+[[./.ob-jupyter/f7a84e541ce80eefcdfff6fe9c21ae92dcba11c5.jpg]]
+
+
 *** COMMENT para Jupyter-Notebook                                :noexports:
 \(
-\newcommand{\Rr}{{\mathbb{R}}}
-\newcommand{\Zz}{{\mathbb{Z}}}
+\newcommand{\R}[1][{}]{{\mathbb{R}}^{#1}}
+\newcommand{\Z}[1][{}]{{\mathbb{Z}}^{#1}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\getItem}{\pmb{\mid}}
 \newcommand{\getitemR}[1]{\getItem{#1}}
@@ -53,7 +92,7 @@ from sympy import preview
 \newcommand{\VectCP}[2][{}] {\elemRP {\Mat{#2}}{#1}}   % con subindices y paréntesis
 \newcommand{\VectCPE}[2][{}]{\elemRPE{\Mat{#2}}{#1}}   % con subindices y paréntesis exterior
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\mat}[1]{\boldsymbol{\mathsf{#1}}}
+\newcommand{\mat}[1]{\mathbf{#1}}
 \newcommand{\Mat} [2][{}]{{\mat{#2}}_{#1}} 
 \newcommand{\T}{\intercal}
 \newcommand{\MatT}[2][{}]{{\mat{#2}}^{\T}_{#1}}
@@ -68,9 +107,6 @@ from sympy import preview
 
 
 * Suma de vectores
-
-/Antes de empezar, vea el vídeo:/ [[https://ucmdrive.ucm.es/s/9LTcbLSW3HknBMa][Suma de vectores de $\Rr^n$]] /y lea la [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.1.2][Sección 1.2]] del [[https://mbujosab.github.io/CursoDeAlgebraLineal][libro]]./
-
 Genere los vectores $\Vect{a}$ y $\Vect{b}$:
 - el vector $\Vect{a}$ está formado por la lista de números: 1, 4, 9, 2
 - el vector $\Vect{b}$ está formado por la lista de números: 1, 2, 1, 0
@@ -128,6 +164,15 @@ el orden de las operaciones.
 /Al trabajar con Python, recuerde que se ejecutan las operaciones de
 izquierda a derecha./ /No olvide la necesidad de poner paréntesis al
 trabajar con Python./
+
+** Interpretación geométrica de la suma
+
+#+BEGIN_SRC jupyter-python
+YouTubeVideo('kSgd-davYhw')  # ejecute este bloque de código para ver el vídeo
+#+END_SRC
+
+#+RESULTS:
+[[./.ob-jupyter/ee77af171c7f4286709781e222099d88b9d7016e.jpg]]
 
 
 * Producto de un vector por un escalar
