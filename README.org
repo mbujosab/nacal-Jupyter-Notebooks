@@ -77,3 +77,7 @@ Luego, abra un terminal y navegue hasta la carpeta con los notebooks para ejecut
 ** Lección 2
 
 - [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc02.ipynb][Lecc02.ipynb]]
+
+** Lección 3
+
+- [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc03.ipynb][Lecc03.ipynb]]
