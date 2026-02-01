@@ -67,17 +67,26 @@ Luego, abra un terminal y navegue hasta la carpeta con los notebooks para ejecut
 
 /MyBinder es gratuito y podría retrasarse en generar la instancia por la carga de trabajo o, eventualmente, no funcionar./
 
-** Lección 1
+#+HTML_HEAD: <style type="text/css">
+#+HTML_HEAD: .styledtable col:nth-of-type(1) { width:  1%; background: #e3e8ec; }
+#+HTML_HEAD: .styledtable col:nth-of-type(2) { width: 25%; background: #fbfdff; }
+#+HTML_HEAD: .styledtable col:nth-of-type(3) { width: 30%; background: #fbfdff; }
+#+HTML_HEAD: .styledtable col:nth-of-type(4) { width: 30%; background: #fbfdff; }
+#+HTML_HEAD: </style>
 
-- [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc01-Secc1.1.ipynb][Lecc01-Secc1.1.ipynb]]
-- [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc01-Secc1.2.ipynb][Lecc01-Secc1.2.ipynb]]
-- [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc01-Secc1.4.ipynb][Lecc01-Secc1.4.ipynb]]
-- [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc01-Secc1.5.ipynb][Lecc01-Secc1.5.ipynb]]
+#+ATTR_HTML: :class styledtable
+| Lección | Español              | English                  |
+|---------+----------------------+--------------------------|
+|      01 | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc01-Secc1.1.ipynb][Lecc01-Secc1.1.ipynb]] | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc01-Secc1.1-Eng.ipynb][Lecc01-Secc1.1-Eng.ipynb]] |
+|         | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc01-Secc1.2.ipynb][Lecc01-Secc1.2.ipynb]] | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc01-Secc1.2-Eng.ipynb][Lecc01-Secc1.2-Eng.ipynb]] |
+|         | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc01-Secc1.4.ipynb][Lecc01-Secc1.4.ipynb]] | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc01-Secc1.4-Eng.ipynb][Lecc01-Secc1.4-Eng.ipynb]] |
+|         | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc01-Secc1.5.ipynb][Lecc01-Secc1.5.ipynb]] | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc01-Secc1.5-Eng.ipynb][Lecc01-Secc1.5-Eng.ipynb]] |
+|         | ==================== | ======================== |
+|---------+----------------------+--------------------------|
+|      02 | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc02.ipynb][Lecc02.ipynb]]         | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc02-Eng.ipynb][Lecc02-Eng.ipynb]]         |
+|         | ==================== | ======================== |
+|---------+----------------------+--------------------------|
+|      03 | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc03.ipynb][Lecc03.ipynb]]         | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc03-Eng.ipynb][Lecc03-Eng.ipynb]]         |
+|         | ==================== | ======================== |
+|---------+----------------------+--------------------------|
 
-** Lección 2
-
-- [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc02.ipynb][Lecc02.ipynb]]
-
-** Lección 3
-
-- [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc03.ipynb][Lecc03.ipynb]]

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2026-02-01 dom 15:45 -->
+<!-- 2026-02-01 dom 19:48 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Jupyter Notebooks para un Curso de Álgebra Lineal</title>
@@ -211,6 +211,12 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 <script type="text/javascript">
 $(function() {    $('.note').before("<p class='admonition-title note'>Note</p>");    $('.seealso').before("<p class='admonition-title seealso'>See also</p>");    $('.warning').before("<p class='admonition-title warning'>Warning</p>");    $('.caution').before("<p class='admonition-title caution'>Caution</p>");    $('.attention').before("<p class='admonition-title attention'>Attention</p>");    $('.tip').before("<p class='admonition-title tip'>Tip</p>");    $('.important').before("<p class='admonition-title important'>Important</p>");    $('.hint').before("<p class='admonition-title hint'>Hint</p>");    $('.error').before("<p class='admonition-title error'>Error</p>");    $('.danger').before("<p class='admonition-title danger'>Danger</p>");});$( document ).ready(function() {        $(document).on('click', "[data-toggle='wy-nav-top']", function() {      $("[data-toggle='wy-nav-shift']").toggleClass("shift");      $("[data-toggle='rst-versions']").toggleClass("shift");    });        $(document).on('click', ".wy-menu-vertical .current ul li a", function() {      $("[data-toggle='wy-nav-shift']").removeClass("shift");      $("[data-toggle='rst-versions']").toggleClass("shift");    });    $(document).on('click', "[data-toggle='rst-current-version']", function() {      $("[data-toggle='rst-versions']").toggleClass("shift-up");    });        $("table.docutils:not(.field-list)").wrap("<div class='wy-table-responsive'></div>");});$( document ).ready(function() {    $('#text-table-of-contents ul').first().addClass('nav');    $('body').scrollspy({target: '#text-table-of-contents'});            var $postamble = $('#postamble');    var $tableOfContents = $('#table-of-contents');    $tableOfContents.css({paddingBottom: $postamble.outerHeight()});        var toggleSidebar = $('<div id="toggle-sidebar"><a href="#table-of-contents"><h2>Table of Contents</h2></a></div>');    $('#content').prepend(toggleSidebar);        var closeBtn = $('<a class="close-sidebar" href="#">Close</a>');    var tocTitle = $('#table-of-contents').find('h2');    tocTitle.append(closeBtn);});window.SphinxRtdTheme = (function (jquery) {    var stickyNav = (function () {        var navBar,            win,            stickyNavCssClass = 'stickynav',            applyStickNav = function () {                if (navBar.height() <= win.height()) {                    navBar.addClass(stickyNavCssClass);                } else {                    navBar.removeClass(stickyNavCssClass);                }            },            enable = function () {                applyStickNav();                win.on('resize', applyStickNav);            },            init = function () {                navBar = jquery('nav.wy-nav-side:first');                win    = jquery(window);            };        jquery(init);        return {            enable : enable        };    }());    return {        StickyNav : stickyNav    };}($));
 </script>
+<style type="text/css">
+.styledtable col:nth-of-type(1) { width:  1%; background: #e3e8ec; }
+.styledtable col:nth-of-type(2) { width: 25%; background: #fbfdff; }
+.styledtable col:nth-of-type(3) { width: 30%; background: #fbfdff; }
+.styledtable col:nth-of-type(4) { width: 30%; background: #fbfdff; }
+</style>
 </head>
 <body>
 <div id="content" class="content">
@@ -219,18 +225,18 @@ $(function() {    $('.note').before("<p class='admonition-title note'>Note</p>")
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org920c3a3">Cuadernos Electrónicos para un Curso de Álgebra Lineal</a></li>
-<li><a href="#org5b51d9a">NAcAL Jupyter Notebooks</a>
+<li><a href="#org22ed2b2">Cuadernos Electrónicos para un Curso de Álgebra Lineal</a></li>
+<li><a href="#org16eb61d">NAcAL Jupyter Notebooks</a>
 <ul>
-<li><a href="#orgc40162e">Ejecución de los notebooks sin instalación</a></li>
-<li><a href="#org2e9eaf9">Ejecución de los notebooks en su disco duro (recomendado)</a></li>
+<li><a href="#org9a4ae6f">Ejecución de los notebooks sin instalación</a></li>
+<li><a href="#orgeee6859">Ejecución de los notebooks en su disco duro (recomendado)</a></li>
 </ul>
 </li>
-<li><a href="#org1c63567">Enlace a los notebooks para su ejecución en el navegador</a>
+<li><a href="#orgcdf8635">Enlace a los notebooks para su ejecución en el navegador</a>
 <ul>
-<li><a href="#orga9641fc">Lección 1</a></li>
-<li><a href="#orgb9aea48">Lección 2</a></li>
-<li><a href="#org06ad829">Lección 3</a></li>
+<li><a href="#orga58f2c7">Lección 1</a></li>
+<li><a href="#orgedaad92">Lección 2</a></li>
+<li><a href="#org1e53bf1">Lección 3</a></li>
 </ul>
 </li>
 </ul>
@@ -240,9 +246,9 @@ $(function() {    $('.note').before("<p class='admonition-title note'>Note</p>")
 <li>Enlace a la <a href="https://mbujosab.github.io/nacal-Jupyter-Notebooks/">página web</a></li>
 <li>Enlace al <a href="https://github.com/mbujosab/nacal-Jupyter-Notebooks">repositorio</a> de GitHub</li>
 </ul>
-<div id="outline-container-org920c3a3" class="outline-2">
-<h2 id="org920c3a3">Cuadernos Electrónicos para un Curso de Álgebra Lineal</h2>
-<div class="outline-text-2" id="text-org920c3a3">
+<div id="outline-container-org22ed2b2" class="outline-2">
+<h2 id="org22ed2b2">Cuadernos Electrónicos para un Curso de Álgebra Lineal</h2>
+<div class="outline-text-2" id="text-org22ed2b2">
 <p>
 Estos cuadernos emplean el módulo de Python <a href="https://pypi.org/project/nacal/">NAcAL</a>.
 </p>
@@ -252,16 +258,16 @@ El módulo <a href="https://github.com/mbujosab/nacallib">NAcAL</a> implementa l
 </p>
 </div>
 </div>
-<div id="outline-container-org5b51d9a" class="outline-2">
-<h2 id="org5b51d9a">NAcAL Jupyter Notebooks</h2>
-<div class="outline-text-2" id="text-org5b51d9a">
+<div id="outline-container-org16eb61d" class="outline-2">
+<h2 id="org16eb61d">NAcAL Jupyter Notebooks</h2>
+<div class="outline-text-2" id="text-org16eb61d">
 <p>
 Puede visualizar el contenido de los notebooks <span class="underline"><a href="https://nbviewer.jupyter.org/github/mbujosab/nacal-Jupyter-Notebooks/tree/master/">aquí</a>.</span>
 </p>
 </div>
-<div id="outline-container-orgc40162e" class="outline-3">
-<h3 id="orgc40162e">Ejecución de los notebooks sin instalación</h3>
-<div class="outline-text-3" id="text-orgc40162e">
+<div id="outline-container-org9a4ae6f" class="outline-3">
+<h3 id="org9a4ae6f">Ejecución de los notebooks sin instalación</h3>
+<div class="outline-text-3" id="text-org9a4ae6f">
 <p>
 Basta acceder al siguiente <a href="https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master">enlace</a> a los cuadernos en MyBinder.
 </p>
@@ -271,9 +277,9 @@ Basta acceder al siguiente <a href="https://mybinder.org/v2/gh/mbujosab/nacal-ju
 </p>
 </div>
 </div>
-<div id="outline-container-org2e9eaf9" class="outline-3">
-<h3 id="org2e9eaf9">Ejecución de los notebooks en su disco duro (recomendado)</h3>
-<div class="outline-text-3" id="text-org2e9eaf9">
+<div id="outline-container-orgeee6859" class="outline-3">
+<h3 id="orgeee6859">Ejecución de los notebooks en su disco duro (recomendado)</h3>
+<div class="outline-text-3" id="text-orgeee6859">
 <p>
 Requisitos para ejecutar los notebooks localmente:
 </p>
@@ -310,16 +316,92 @@ Luego, abra un terminal y navegue hasta la carpeta con los notebooks para ejecut
 </div>
 </div>
 </div>
-<div id="outline-container-org1c63567" class="outline-2">
-<h2 id="org1c63567">Enlace a los notebooks para su ejecución en el navegador</h2>
-<div class="outline-text-2" id="text-org1c63567">
+<div id="outline-container-orgcdf8635" class="outline-2">
+<h2 id="orgcdf8635">Enlace a los notebooks para su ejecución en el navegador</h2>
+<div class="outline-text-2" id="text-orgcdf8635">
 <p>
 <i>MyBinder es gratuito y podría retrasarse en generar la instancia por la carga de trabajo o, eventualmente, no funcionar.</i>
 </p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" class="styledtable">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">Lección</th>
+<th scope="col" class="org-left">Español</th>
+<th scope="col" class="org-left">English</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">01</td>
+<td class="org-left"><a href="https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc01-Secc1.1.ipynb">Lecc01-Secc1.1.ipynb</a></td>
+<td class="org-left"><a href="https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc01-Secc1.1-Eng.ipynb">Lecc01-Secc1.1-Eng.ipynb</a></td>
+</tr>
+
+<tr>
+<td class="org-right">&#xa0;</td>
+<td class="org-left"><a href="https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc01-Secc1.2.ipynb">Lecc01-Secc1.2.ipynb</a></td>
+<td class="org-left"><a href="https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc01-Secc1.2-Eng.ipynb">Lecc01-Secc1.2-Eng.ipynb</a></td>
+</tr>
+
+<tr>
+<td class="org-right">&#xa0;</td>
+<td class="org-left"><a href="https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc01-Secc1.4.ipynb">Lecc01-Secc1.4.ipynb</a></td>
+<td class="org-left"><a href="https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc01-Secc1.4-Eng.ipynb">Lecc01-Secc1.4-Eng.ipynb</a></td>
+</tr>
+
+<tr>
+<td class="org-right">&#xa0;</td>
+<td class="org-left"><a href="https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc01-Secc1.5.ipynb">Lecc01-Secc1.5.ipynb</a></td>
+<td class="org-left"><a href="https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc01-Secc1.5-Eng.ipynb">Lecc01-Secc1.5-Eng.ipynb</a></td>
+</tr>
+
+<tr>
+<td class="org-right">&#xa0;</td>
+<td class="org-left"><code>==================</code></td>
+<td class="org-left"><code>======================</code></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-right">02</td>
+<td class="org-left"><a href="https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc02.ipynb">Lecc02.ipynb</a></td>
+<td class="org-left"><a href="https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc02-Eng.ipynb">Lecc02-Eng.ipynb</a></td>
+</tr>
+
+<tr>
+<td class="org-right">&#xa0;</td>
+<td class="org-left"><code>==================</code></td>
+<td class="org-left"><code>======================</code></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-right">03</td>
+<td class="org-left"><a href="https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc03.ipynb">Lecc03.ipynb</a></td>
+<td class="org-left"><a href="https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc03-Eng.ipynb">Lecc03-Eng.ipynb</a></td>
+</tr>
+
+<tr>
+<td class="org-right">&#xa0;</td>
+<td class="org-left"><code>==================</code></td>
+<td class="org-left"><code>======================</code></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="outline-container-orga9641fc" class="outline-3">
-<h3 id="orga9641fc">Lección 1</h3>
-<div class="outline-text-3" id="text-orga9641fc">
+<div id="outline-container-orga58f2c7" class="outline-3">
+<h3 id="orga58f2c7">Lección 1</h3>
+<div class="outline-text-3" id="text-orga58f2c7">
 <ul class="org-ul">
 <li><a href="https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc01-Secc1.1.ipynb">Lecc01-Secc1.1.ipynb</a></li>
 <li><a href="https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc01-Secc1.2.ipynb">Lecc01-Secc1.2.ipynb</a></li>
@@ -328,17 +410,17 @@ Luego, abra un terminal y navegue hasta la carpeta con los notebooks para ejecut
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb9aea48" class="outline-3">
-<h3 id="orgb9aea48">Lección 2</h3>
-<div class="outline-text-3" id="text-orgb9aea48">
+<div id="outline-container-orgedaad92" class="outline-3">
+<h3 id="orgedaad92">Lección 2</h3>
+<div class="outline-text-3" id="text-orgedaad92">
 <ul class="org-ul">
 <li><a href="https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc02.ipynb">Lecc02.ipynb</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org06ad829" class="outline-3">
-<h3 id="org06ad829">Lección 3</h3>
-<div class="outline-text-3" id="text-org06ad829">
+<div id="outline-container-org1e53bf1" class="outline-3">
+<h3 id="org1e53bf1">Lección 3</h3>
+<div class="outline-text-3" id="text-org1e53bf1">
 <ul class="org-ul">
 <li><a href="https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc03.ipynb">Lecc03.ipynb</a></li>
 </ul>
@@ -348,7 +430,7 @@ Luego, abra un terminal y navegue hasta la carpeta con los notebooks para ejecut
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Marcos Bujosa</p>
-<p class="date">Created: 2026-02-01 dom 15:45</p>
+<p class="date">Created: 2026-02-01 dom 19:48</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
