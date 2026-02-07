@@ -89,4 +89,10 @@ Luego, abra un terminal y navegue hasta la carpeta con los notebooks para ejecut
 |      03 | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc03.ipynb][Lecc03.ipynb]]         | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc03-Eng.ipynb][Lecc03-Eng.ipynb]]         |
 |         | ==================== | ======================== |
 |---------+----------------------+--------------------------|
+|      01 | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc04-Secc4.1.ipynb][Lecc04-Secc4.1.ipynb]] |                          |
+|         | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc04-Secc4.2.ipynb][Lecc04-Secc4.2.ipynb]] |                          |
+|         | ==================== | ======================== |
+|---------+----------------------+--------------------------|
 
+# [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc04-Secc4.1-Eng.ipynb][Lecc04-Secc4.1-Eng.ipynb]] 
+# [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master/?filepath=Lecc04-Secc4.2-Eng.ipynb][Lecc04-Secc4.2-Eng.ipynb]] 
