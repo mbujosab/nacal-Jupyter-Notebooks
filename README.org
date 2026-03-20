@@ -98,5 +98,8 @@ Esto abrirá una ventana en el navegador donde podrá manipular los cuadernos.
 |         | ==================== | ======================== |
 |---------+----------------------+--------------------------|
 |      05 | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/Lecc05-Secc5.1.ipynb][Lecc05-Secc5.1.ipynb]] | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc05-Secc5.1-Eng.ipynb][Lecc05Secc5.1-Eng.ipynb]]  |
+|         | ==================== | ======================== |
+|---------+----------------------+--------------------------|
+|      -- | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/PorDesarrollar.ipynb][PorDesarrollar.ipynb]] | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/ToDevelop.ipynb][ToDevelop.ipynb]]          |
 |---------+----------------------+--------------------------|
 
