@@ -87,7 +87,9 @@ Esto abrirá una ventana en el navegador donde podrá manipular los cuadernos.
 |         | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/Lecc01-Secc1.5.ipynb][Lecc01.Secc1.5.ipynb]] | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc01-Secc1.5-Eng.ipynb][Lecc01.Secc1.5-Eng.ipynb]] |
 |         | ==================== | ======================== |
 |---------+----------------------+--------------------------|
-|      02 | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/Lecc02.ipynb][Lecc02.ipynb]]         | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc02-Eng.ipynb][Lecc02-Eng.ipynb]]         |
+|      02 | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/Lecc02-Secc2.1.ipynb][Lecc02-Secc2.1.ipynb]] | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc02-Secc2.1-Eng.ipynb][Lecc02-Secc2.1-Eng.ipynb]] |
+|         | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/Lecc02-Secc2.2.ipynb][Lecc02-Secc2.2.ipynb]] | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc02-Secc2.2-Eng.ipynb][Lecc02-Secc2.2-Eng.ipynb]] |
+|         | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/Lecc02-Secc2.3.ipynb][Lecc02-Secc2.3.ipynb]] | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc02-Secc2.3-Eng.ipynb][Lecc02-Secc2.3-Eng.ipynb]] |
 |         | ==================== | ======================== |
 |---------+----------------------+--------------------------|
 |      03 | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/Lecc03.ipynb][Lecc03.ipynb]]         | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc03-Eng.ipynb][Lecc03-Eng.ipynb]]         |
