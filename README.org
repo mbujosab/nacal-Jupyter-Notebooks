@@ -1,103 +1,72 @@
 #+TITLE: Jupyter Notebooks para un Curso de Álgebra Lineal
 #+AUTHOR: Marcos Bujosa
 #+LANGUAGE: es
-#+STARTUP: show3levels
-# +OPTIONS: toc:nil
-
+#+OPTIONS: toc:nil num:nil
 #+EXPORT_FILE_NAME: index
-
-# ###########
-# ESTO DA EL FORMATO FINAL DE LA PÁGINA WEB VÉASE [[https://olmon.gitlab.io/org-themes/]]
 #+SETUPFILE: ./css/readtheorg_inline.theme
-# +SETUPFILE: ./css/simple_inlineUCM.theme
-# +SETUPFILE: ./css/bigblow_inline.theme
-# ###########
-
-- Enlace a la [[https://mbujosab.github.io/nacal-Jupyter-Notebooks/][página web]]
-- Enlace al [[https://github.com/mbujosab/nacal-Jupyter-Notebooks][repositorio]] de GitHub
-
-* Cuadernos Electrónicos para un Curso de Álgebra Lineal
-  :PROPERTIES:
-  :UNNUMBERED: t
-  :END:
-
-Estos cuadernos emplean el módulo de Python [[https://pypi.org/project/nacal/][NAcAL]].
-
-El módulo [[https://github.com/mbujosab/nacallib][NAcAL]] implementa lo que se expone en el [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf][libro]]. Esto le permite experimentar con Python usando una notación similar a la de clase. El [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf][libro]] y el módulo [[https://github.com/mbujosab/nacallib][NAcAL]] son interdependientes y se complementan mutuamente.
-
-Si solo quiere visualizar el contenido de los cuadernos, puede hacerlo _[[https://nbviewer.jupyter.org/github/mbujosab/nacal-Jupyter-Notebooks/tree/master/][aquí]]._
-
-* NAcAL Jupyter Notebooks
-    :PROPERTIES:  
-    :UNNUMBERED: t
-    :END:
-
-
-** Ejecución de los notebooks sin instalación
-
-Basta acceder al siguiente [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab][enlace]] a los cuadernos en MyBinder.
-- Si quiere acceder directamente a la carpeta con cuadernos en *español*, acceda [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp][aquí]]
-- If you want to directly access the folder with notebooks in *english*, click [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng][here]]
-
-/Tenga en cuenta que MyBinder es gratuito y puede tardar en generar el repositorio (ocasionalmente no funciona)./
-
-** Ejecución de los notebooks en su disco duro (recomendado)
-
-Requisitos para ejecutar los notebooks localmente:
-
-1. Instale Python:
-   - https://www.python.org/downloads/
-   - https://realpython.com/installing-python/
-
-2. Instale el administrador de paquetes =pip=:
-   - https://packaging.python.org/en/latest/tutorials/installing-packages/
-
-3. Instale ~Jupyter Notebook~ o ~Jupyter Lab~ con =pip=:
-   - https://jupyter.org/install
-   - https://codigospython.com/descarga-e-instalacion-de-jupyter/
-
-4. Instale el módulo [[https://pypi.org/project/nacal/][~nacal~]] con =pip=:
-   - En el terminal: =pip install nacal=
-
-5. Descargue el [[https://github.com/mbujosab/nacal-Jupyter-Notebooks][repositorio del curso]] completo, o tan solo los cuadernos con los que quiera trabajar en su ordenador.
-
-Luego, abra un terminal y navegue hasta la carpeta con los notebooks para ejecutar =jupyter notebook=. 
-Esto abrirá una ventana en el navegador donde podrá manipular los cuadernos.
-
-* Enlace a los notebooks para su ejecución en el navegador
-    :PROPERTIES:  
-    :UNNUMBERED: t
-    :END:
-
-/MyBinder es gratuito y podría retrasarse en generar la instancia por la carga de trabajo o, eventualmente, no funcionar./
 
 #+HTML_HEAD: <style type="text/css">
-#+HTML_HEAD: .styledtable col:nth-of-type(1) { width:  1%; background: #e3e8ec; }
-#+HTML_HEAD: .styledtable col:nth-of-type(2) { width: 25%; background: #fbfdff; }
-#+HTML_HEAD: .styledtable col:nth-of-type(3) { width: 30%; background: #fbfdff; }
-#+HTML_HEAD: .styledtable col:nth-of-type(4) { width: 30%; background: #fbfdff; }
+#+HTML_HEAD: .guia { width: 100%; } .guia td, .guia th { vertical-align: top; }
+#+HTML_HEAD: .guia col:nth-of-type(1) { width: 50%; } .guia col:nth-of-type(2) { width: 18%; }
 #+HTML_HEAD: </style>
 
-#+ATTR_HTML: :class styledtable
-| Lección | Español              | English                  |
-|---------+----------------------+--------------------------|
-|      01 | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/Lecc01-Secc1.1.ipynb][Lecc01-Secc1.1.ipynb]] | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc01-Secc1.1-Eng.ipynb][Lecc01-Secc1.1-Eng.ipynb]] |
-|         | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/Lecc01-Secc1.2.ipynb][Lecc01-Secc1.2.ipynb]] | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc01-Secc1.2-Eng.ipynb][Lecc01-Secc1.2-Eng.ipynb]] |
-|         | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/Lecc01-Secc1.4.ipynb][Lecc01-Secc1.4.ipynb]] | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc01-Secc1.4-Eng.ipynb][Lecc01-Secc1.4-Eng.ipynb]] |
-|         | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/Lecc01-Secc1.5.ipynb][Lecc01-Secc1.5.ipynb]] | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc01-Secc1.5-Eng.ipynb][Lecc01-Secc1.5-Eng.ipynb]] |
-|---------+----------------------+--------------------------|
-|      02 | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/Lecc02-Secc2.1.ipynb][Lecc02-Secc2.1.ipynb]] | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc02-Secc2.1-Eng.ipynb][Lecc02-Secc2.1-Eng.ipynb]] |
-|         | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/Lecc02-Secc2.2.ipynb][Lecc02-Secc2.2.ipynb]] | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc02-Secc2.2-Eng.ipynb][Lecc02-Secc2.2-Eng.ipynb]] |
-|         | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/Lecc02-Secc2.3.ipynb][Lecc02-Secc2.3.ipynb]] | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc02-Secc2.3-Eng.ipynb][Lecc02-Secc2.3-Eng.ipynb]] |
-|         | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/DibujarVectores.ipynb][DibujarVectores.ipynb]] | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/DrawingVectors-Eng.ipynb][DrawingVectors-Eng.ipynb]] |
-|---------+----------------------+--------------------------|
-|      03 | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/Lecc03.ipynb][Lecc03.ipynb]]         | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc03-Eng.ipynb][Lecc03-Eng.ipynb]]         |
-|---------+----------------------+--------------------------|
-|      04 | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/Lecc04-Secc4.1.ipynb][Lecc04-Secc4.1.ipynb]] | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc04-Secc4.1-Eng.ipynb][Lecc04-Secc4.1-Eng.ipynb]] |
-|         | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/Lecc04-Secc4.2.ipynb][Lecc04-Secc4.2.ipynb]] | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc04-Secc4.2-Eng.ipynb][Lecc04-Secc4.2-Eng.ipynb]] |
-|---------+----------------------+--------------------------|
-|      05 | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/Lecc05-Secc5.1.ipynb][Lecc05-Secc5.1.ipynb]] | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc05-Secc5.1-Eng.ipynb][Lecc05-Secc5.1-Eng.ipynb]]  |
-|---------+----------------------+--------------------------|
-|      -- | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/PorDesarrollar.ipynb][PorDesarrollar.ipynb]] | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/ToDevelop.ipynb][ToDevelop.ipynb]]          |
-|---------+----------------------+--------------------------|
+[[file:index-en.html][English version]]
 
+Cada Notebook es una guía de estudio de una sección del [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf][libro]]. Le dice qué vídeo ver y qué leer, y le propone ejercicios para hacer en el ordenador con el módulo de Python [[https://github.com/mbujosab/nacallib][NAcAL]]. NAcAL usa la misma notación que el libro y que las clases.
+
+Los enlaces de las tablas abren cada Notebook en el navegador con MyBinder. No hace falta instalar nada. MyBinder es un servicio gratuito: tarda un poco en arrancar y a veces falla. Más abajo se explica cómo trabajar en su propio ordenador.
+
+* Otros materiales del curso
+
+- El [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf][libro]] del curso.
+- Los vídeos: [[https://www.youtube.com/playlist?list=PLA94O6zqDj0VREglVLepuCd0d8F0d-rnL][lista completa en YouTube]].
+- Las transparencias y los problemas: [[https://mbujosab.github.io/MatematicasII/][material de clase]].
+
+* Lecciones revisadas
+
+Estos Notebooks están revisados con el libro, los vídeos y el material de clase.
+
+** Lección 1. Vectores y matrices (notación y operaciones)
+
+#+ATTR_HTML: :class guia
+| Secciones del libro | Vídeos | Notebook |
+|---+---+---|
+| [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.1.1][1.1]] Vectores | [[https://youtu.be/HWaQrbSc8WA][1]] | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/Lecc01-Secc1.1.ipynb][Abrir Lecc01-Secc1.1.ipynb]] |
+| [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.1.2][1.2]] Sumas de vectores y productos de vectores por escalares @@html:<br/>@@ [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.1.3][1.3]] Vectores como representación de datos | [[https://youtu.be/LvcerzXX3IM][2]] [[https://youtu.be/kSgd-davYhw][3]] [[https://youtu.be/SG4ZwRAIQLY][4]] [[https://youtu.be/nfftYHyi0hU][5]] [[https://youtu.be/Hrkks90PbVE][6]] [[https://youtu.be/GOqglYkmOiA][7]] [[https://youtu.be/w62nh5CvJtM][8]] | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/Lecc01-Secc1.2.ipynb][Abrir Lecc01-Secc1.2.ipynb]] |
+| [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.1.4][1.4]] Matrices | [[https://youtu.be/9w6gEv3XrTc][9]] [[https://youtu.be/gpVJnl4nAdU][10]] [[https://youtu.be/P6B-AIrPugs][11]] [[https://youtu.be/zKef0mF4YHQ][12]] | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/Lecc01-Secc1.4.ipynb][Abrir Lecc01-Secc1.4.ipynb]] |
+| [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.1.5][1.5]] Suma de matrices y producto de matrices por escalares @@html:<br/>@@ [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.1.6][1.6]] Extensión de la notación matricial y las reglas de reescritura | todavía no publicados | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/Lecc01-Secc1.5.ipynb][Abrir Lecc01-Secc1.5.ipynb]] |
+
+Cuando termine los Notebooks de la lección, haga en papel los [[https://mbujosab.github.io/MatematicasII/Esp/Transparencias_y_ejercicios/P01-MatematicasII-print.pdf#ProblemasLeccion1][problemas de la Lección 1]] del material de clase. Use NAcAL para comprobar los cálculos.
+
+** Lección 2. Combinaciones lineales
+
+#+ATTR_HTML: :class guia
+| Secciones del libro | Vídeos | Notebook |
+|---+---+---|
+| [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.2.1][2.1]] Producto punto | todavía no hay | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/Lecc02-Secc2.1.ipynb][Abrir Lecc02-Secc2.1.ipynb]] |
+| [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.2.2][2.2]] Matriz por vector | todavía no hay | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/Lecc02-Secc2.2.ipynb][Abrir Lecc02-Secc2.2.ipynb]] |
+| [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.2.3][2.3]] Vector por matriz | todavía no hay | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/Lecc02-Secc2.3.ipynb][Abrir Lecc02-Secc2.3.ipynb]] |
+| Dibujar vectores del plano. Sirve para los tres últimos problemas de la lección. | | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/DibujarVectores.ipynb][Abrir DibujarVectores.ipynb]] |
+
+Cuando termine los Notebooks de la lección, haga en papel los [[https://mbujosab.github.io/MatematicasII/Esp/Transparencias_y_ejercicios/P01-MatematicasII-print.pdf#ProblemasLeccion2][problemas de la Lección 2]] del material de clase. Use NAcAL para comprobar los cálculos.
+
+* Lecciones 3 a 5: Notebooks antiguos
+
+Estos Notebooks son anteriores a la revisión. Funcionan, pero no siguen todavía el orden del libro ni enlazan los vídeos. Se irán sustituyendo.
+
+#+ATTR_HTML: :class guia
+| Lección | Notebooks |
+|---+---|
+| 3. Multiplicación matricial | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/Lecc03.ipynb][Lecc03.ipynb]] |
+| 4. Transformaciones elementales y métodos de eliminación | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/Lecc04-Secc4.1.ipynb][Lecc04-Secc4.1.ipynb]] @@html:<br/>@@ [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/Lecc04-Secc4.2.ipynb][Lecc04-Secc4.2.ipynb]] |
+| 5. Inversa de una matriz. Rango de una matriz | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/Lecc05-Secc5.1.ipynb][Lecc05-Secc5.1.ipynb]] |
+| Notebook provisional con temas posteriores a la Lección 5 | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/PorDesarrollar.ipynb][PorDesarrollar.ipynb]] |
+
+* Cómo trabajar en su ordenador (recomendado)
+
+1. Instale [[https://www.python.org/downloads/][Python]].
+2. Instale Jupyter y NAcAL. En un terminal: =pip install jupyterlab nacal=
+3. Descargue el [[https://github.com/mbujosab/nacal-Jupyter-Notebooks][repositorio]] completo, o solo los Notebooks que quiera.
+4. Abra un terminal en la carpeta de los Notebooks y ejecute =jupyter lab=. Se abrirá una ventana del navegador con los Notebooks.
+
+Si solo quiere leer los Notebooks, sin ejecutarlos, puede verlos [[https://nbviewer.jupyter.org/github/mbujosab/nacal-Jupyter-Notebooks/tree/master/][aquí]].
