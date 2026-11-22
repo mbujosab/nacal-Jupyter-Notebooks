@@ -16,6 +16,8 @@ Each Notebook is a study guide for one section of the [[https://mbujosab.github.
 
 The links in the tables open each Notebook in the browser with MyBinder. Nothing needs to be installed. MyBinder is a free service: it takes a moment to start and it sometimes fails. Further down you can read how to work on your own computer.
 
+To try code from the book or from the slides there is a [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/BlankNotebook-Eng.ipynb][blank Notebook]]. At the end it has a reminder of the most frequent commands.
+
 * Other course materials
 
 - The [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf][book]] of the course (in Spanish).
