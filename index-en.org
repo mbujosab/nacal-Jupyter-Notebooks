@@ -52,14 +52,28 @@ When you finish the Notebooks of the lecture, do on paper the [[https://mbujosab
 
 When you finish the Notebooks of the lecture, do on paper the [[https://mbujosab.github.io/MatematicasII/Eng/Slides_and_exercises/P01-MatematicasII-printENG.pdf#ProblemasLeccion2][problems for Lecture 2]] of the class material. Use NAcAL to check the calculations.
 
-* Lectures 3 to 5: old Notebooks
+** Lecture 3. Matrix multiplication
+
+#+ATTR_HTML: :class guia
+| Sections of the book | Videos | Notebook |
+|---+---+---|
+| [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.3.1][3.1]] Product of matrices | none yet | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc03-Secc3.1-Eng.ipynb][Open Lecc03-Secc3.1-Eng.ipynb]] |
+| [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.3.2][3.2]] New rewriting rules. Problems of the lecture | none yet | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc03-Secc3.2-Eng.ipynb][Open Lecc03-Secc3.2-Eng.ipynb]] |
+| [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.alph2.3.Alph1][3.A]] Products of triangular matrices (appendix) | none yet | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc03-Secc3.A-Eng.ipynb][Open Lecc03-Secc3.A-Eng.ipynb]] |
+| [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.alph2.3.Alph2][3.B]] and [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.alph2.3.Alph3][3.C]] Submatrices and the product as a sum of products of submatrices (appendices) | none yet | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc03-Secc3.B-Eng.ipynb][Open Lecc03-Secc3.B-Eng.ipynb]] |
+| [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.alph2.3.Alph4][3.D]] and [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.alph2.3.Alph6][3.F]] Trace and powers of a matrix (appendices) | none yet | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc03-Secc3.D-Eng.ipynb][Open Lecc03-Secc3.D-Eng.ipynb]] |
+
+The last three Notebooks accompany the appendices. They are not needed to start Lecture 4.
+
+When you finish the Notebook for Section 3.2, do on paper the [[https://mbujosab.github.io/MatematicasII/Eng/Slides_and_exercises/P01-MatematicasII-printENG.pdf#ProblemasLeccion3][problems for Lecture 3]] of the class material. Use NAcAL to check the calculations.
+
+* Lectures 4 and 5: old Notebooks
 
 These Notebooks are older than the revision. They work, but they do not follow the order of the book yet and they do not link the videos. They will be replaced.
 
 #+ATTR_HTML: :class guia
 | Lecture | Notebooks |
 |---+---|
-| 3. Matrix multiplication | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc03-Eng.ipynb][Lecc03-Eng.ipynb]] |
 | 4. Elementary transformations and elimination methods | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc04-Secc4.1-Eng.ipynb][Lecc04-Secc4.1-Eng.ipynb]] @@html:<br/>@@ [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc04-Secc4.2-Eng.ipynb][Lecc04-Secc4.2-Eng.ipynb]] |
 | 5. Inverse of a matrix. Rank of a matrix | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc05-Secc5.1-Eng.ipynb][Lecc05-Secc5.1-Eng.ipynb]] |
 | Provisional Notebook with topics after Lecture 5 | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/ToDevelop.ipynb][ToDevelop.ipynb]] |
