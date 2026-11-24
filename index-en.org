@@ -12,7 +12,7 @@
 
 [[file:index.html][Versión en español]]
 
-Each Notebook is a study guide for one section of the [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf][book]]. It tells you which video to watch and what to read, and it proposes exercises to do on the computer with the Python module [[https://github.com/mbujosab/nacallib][NAcAL]]. NAcAL uses the same notation as the book and the lectures. The book is in Spanish.
+Each Notebook is a study guide for one section of the [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf][book]]. It tells you which video to watch and what to read, and it proposes exercises to do on the computer with the Python module [[https://mbujosab.github.io/nacallib/][NAcAL]]. NAcAL uses the same notation as the book and the lectures. The book is in Spanish.
 
 The links in the tables open each Notebook in the browser with MyBinder. Nothing needs to be installed. MyBinder is a free service: it takes a moment to start and it sometimes fails. Further down you can read how to work on your own computer.
 
@@ -76,7 +76,6 @@ These Notebooks are older than the revision. They work, but they do not follow t
 |---+---|
 | 4. Elementary transformations and elimination methods | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc04-Secc4.1-Eng.ipynb][Lecc04-Secc4.1-Eng.ipynb]] @@html:<br/>@@ [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc04-Secc4.2-Eng.ipynb][Lecc04-Secc4.2-Eng.ipynb]] |
 | 5. Inverse of a matrix. Rank of a matrix | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc05-Secc5.1-Eng.ipynb][Lecc05-Secc5.1-Eng.ipynb]] |
-| Provisional Notebook with topics after Lecture 5 | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/ToDevelop.ipynb][ToDevelop.ipynb]] |
 
 * How to work on your own computer (recommended)
 
