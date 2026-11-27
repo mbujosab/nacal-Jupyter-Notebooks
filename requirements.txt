@@ -1,3 +1,4 @@
 nacal
 numpy
 matplotlib
+plotly

@@ -49,6 +49,7 @@ When you finish the Notebooks of the lecture, do on paper the [[https://mbujosab
 | [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.2.2][2.2]] Matrix times vector | none yet | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc02-Secc2.2-Eng.ipynb][Open Lecc02-Secc2.2-Eng.ipynb]] |
 | [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.2.3][2.3]] Vector times matrix | none yet | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc02-Secc2.3-Eng.ipynb][Open Lecc02-Secc2.3-Eng.ipynb]] |
 | Drawing vectors in the plane. It is for the last three problems of the lecture. | | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/DrawingVectors-Eng.ipynb][Open DrawingVectors-Eng.ipynb]] |
+| 3D graphics of the slides for the lecture. The [[file:Eng/Graphics3D-Lecc02-Eng.html][figures]] can be rotated in the browser. In the Notebook you can change the data. | | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Graphics3D-Lecc02-Eng.ipynb][Open Graphics3D-Lecc02-Eng.ipynb]] |
 
 When you finish the Notebooks of the lecture, do on paper the [[https://mbujosab.github.io/MatematicasII/Eng/Slides_and_exercises/P01-MatematicasII-printENG.pdf#ProblemasLeccion2][problems for Lecture 2]] of the class material. Use NAcAL to check the calculations.
 

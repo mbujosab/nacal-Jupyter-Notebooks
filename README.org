@@ -49,6 +49,7 @@ Cuando termine los Notebooks de la lección, haga en papel los [[https://mbujosa
 | [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.2.2][2.2]] Matriz por vector | todavía no hay | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/Lecc02-Secc2.2.ipynb][Abrir Lecc02-Secc2.2.ipynb]] |
 | [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.2.3][2.3]] Vector por matriz | todavía no hay | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/Lecc02-Secc2.3.ipynb][Abrir Lecc02-Secc2.3.ipynb]] |
 | Dibujar vectores del plano. Sirve para los tres últimos problemas de la lección. | | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/DibujarVectores.ipynb][Abrir DibujarVectores.ipynb]] |
+| Gráficos en 3D de las transparencias de la lección. Las [[file:Esp/Graficos3D-Lecc02.html][figuras]] se giran en el navegador. En el Notebook se pueden cambiar los datos. | | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/Graficos3D-Lecc02.ipynb][Abrir Graficos3D-Lecc02.ipynb]] |
 
 Cuando termine los Notebooks de la lección, haga en papel los [[https://mbujosab.github.io/MatematicasII/Esp/Transparencias_y_ejercicios/P01-MatematicasII-print.pdf#ProblemasLeccion2][problemas de la Lección 2]] del material de clase. Use NAcAL para comprobar los cálculos.
 
