@@ -68,14 +68,27 @@ The last three Notebooks accompany the appendices. They are not needed to start 
 
 When you finish the Notebook for Section 3.2, do on paper the [[https://mbujosab.github.io/MatematicasII/Eng/Slides_and_exercises/P01-MatematicasII-printENG.pdf#ProblemasLeccion3][problems for Lecture 3]] of the class material. Use NAcAL to check the calculations.
 
-* Lectures 4 and 5: old Notebooks
-
-These Notebooks are older than the revision. They work, but they do not follow the order of the book yet and they do not link the videos. They will be replaced.
+** Lecture 4. Elementary operations and elimination methods
 
 #+ATTR_HTML: :class guia
-| Lecture | Notebooks |
+| Sections of the book | Videos | Notebook |
+|---+---+---|
+| [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.4.1][4.1]] Elementary operations and elementary matrices | none yet | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc04-Secc4.1-Eng.ipynb][Open Lecc04-Secc4.1-Eng.ipynb]] |
+| [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.4.2][4.2]] Column elimination. Problems of the lecture | none yet | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc04-Secc4.2-Eng.ipynb][Open Lecc04-Secc4.2-Eng.ipynb]] |
+| [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.alph3.4.Alph1][4.A]] Elementary row operations (appendix) | none yet | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc04-Secc4.A-Eng.ipynb][Open Lecc04-Secc4.A-Eng.ipynb]] |
+| [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.alph3.4.Alph2][4.B]] The mirror of an elementary operation (appendix) | none yet | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc04-Secc4.B-Eng.ipynb][Open Lecc04-Secc4.B-Eng.ipynb]] |
+
+The last two Notebooks accompany the appendices. The one for Section 4.A can be left until Section 5.2. The one for Section 4.B can be left until Lecture 17.
+
+When you finish the Notebook for Section 4.2, do on paper the [[https://mbujosab.github.io/MatematicasII/Eng/Slides_and_exercises/P02-MatematicasII-printENG.pdf#ProblemasLeccion4][problems for Lecture 4]] of the class material. Use NAcAL to check the calculations.
+
+* Lecture 5: old Notebook
+
+This Notebook is older than the revision. It works, but it does not follow the order of the book yet and it does not link the videos. It will be replaced.
+
+#+ATTR_HTML: :class guia
+| Lecture | Notebook |
 |---+---|
-| 4. Elementary transformations and elimination methods | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc04-Secc4.1-Eng.ipynb][Lecc04-Secc4.1-Eng.ipynb]] @@html:<br/>@@ [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc04-Secc4.2-Eng.ipynb][Lecc04-Secc4.2-Eng.ipynb]] |
 | 5. Inverse of a matrix. Rank of a matrix | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc05-Secc5.1-Eng.ipynb][Lecc05-Secc5.1-Eng.ipynb]] |
 
 * How to work on your own computer (recommended)
