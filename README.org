@@ -27,12 +27,6 @@ Los enlaces de las tablas abren cada Notebook en el navegador con MyBinder. No h
 
 Para probar código del libro o de las transparencias hay un [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/CuadernoEnBlanco.ipynb][cuaderno en blanco]]. Tiene al final un recordatorio de las órdenes más frecuentes.
 
-* Otros materiales del curso
-
-- El [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf][libro]] del curso.
-- Los vídeos: [[https://www.youtube.com/playlist?list=PLA94O6zqDj0VREglVLepuCd0d8F0d-rnL][lista completa en YouTube]].
-- Las transparencias y los problemas: [[https://mbujosab.github.io/MatematicasII/][material de clase]].
-
 * Lecciones revisadas
 
 Estos Notebooks están revisados con el libro, los vídeos y el material de clase.
@@ -82,7 +76,7 @@ Cuando termine el Notebook de la Sección 3.2, haga en papel los [[https://mbujo
 #+ATTR_HTML: :class guia
 | Secciones del libro | Vídeos | Notebook |
 |---+---+---|
-| [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.4.1][4.1]] Transformaciones elementales y matrices elementales | todavía no hay | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/Lecc04-Secc4.1.ipynb][Abrir Lecc04-Secc4.1.ipynb]] |
+| [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.4.1][4.1]] Transformaciones y matrices elementales | todavía no hay | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/Lecc04-Secc4.1.ipynb][Abrir Lecc04-Secc4.1.ipynb]] |
 | [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.4.2][4.2]] Eliminación por columnas. Problemas de la lección | todavía no hay | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/Lecc04-Secc4.2.ipynb][Abrir Lecc04-Secc4.2.ipynb]] |
 | [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.alph3.4.Alph1][4.A]] Transformaciones elementales de las filas (apéndice) | todavía no hay | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/Lecc04-Secc4.A.ipynb][Abrir Lecc04-Secc4.A.ipynb]] |
 | [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf#section.alph3.4.Alph2][4.B]] Transformación espejo (apéndice) | todavía no hay | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/Lecc04-Secc4.B.ipynb][Abrir Lecc04-Secc4.B.ipynb]] |
@@ -100,11 +94,13 @@ Este Notebook es anterior a la revisión. Funciona, pero no sigue todavía el or
 |---+---|
 | 5. Inversa de una matriz. Rango de una matriz | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Esp/Lecc05-Secc5.1.ipynb][Lecc05-Secc5.1.ipynb]] |
 
+Las lecciones siguientes todavía no tienen Notebook.
+
 * Cómo trabajar en su ordenador (recomendado)
 
 1. Instale [[https://www.python.org/downloads/][Python]].
-2. Instale Jupyter y NAcAL. En un terminal: =pip install jupyterlab nacal=
+2. Instale Jupyter, NAcAL y los módulos de dibujo que usan dos Notebooks de la Lección 2. En un terminal: =pip install jupyterlab nacal matplotlib plotly=
 3. Descargue el [[https://github.com/mbujosab/nacal-Jupyter-Notebooks][repositorio]] completo, o solo los Notebooks que quiera.
 4. Abra un terminal en la carpeta de los Notebooks y ejecute =jupyter lab=. Se abrirá una ventana del navegador con los Notebooks.
 
-Si solo quiere leer los Notebooks, sin ejecutarlos, puede verlos [[https://nbviewer.jupyter.org/github/mbujosab/nacal-Jupyter-Notebooks/tree/master/][aquí]].
+Si solo quiere leer los Notebooks, sin ejecutarlos, puede leer su texto [[https://nbviewer.org/github/mbujosab/nacal-Jupyter-Notebooks/tree/master/][aquí]].

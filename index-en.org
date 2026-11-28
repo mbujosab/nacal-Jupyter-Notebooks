@@ -27,12 +27,6 @@ The links in the tables open each Notebook in the browser with MyBinder. Nothing
 
 To try code from the book or from the slides there is a [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/BlankNotebook-Eng.ipynb][blank Notebook]]. At the end it has a reminder of the most frequent commands.
 
-* Other course materials
-
-- The [[https://mbujosab.github.io/CursoDeAlgebraLineal/libro.pdf][book]] of the course (in Spanish).
-- The videos: [[https://www.youtube.com/playlist?list=PLA94O6zqDj0UbMOTqUOucVNpy3BGCgZ0Y][full playlist on YouTube]].
-- The slides and the problems: [[https://mbujosab.github.io/MatematicasII/][class material]].
-
 * Revised lectures
 
 These Notebooks have been revised against the book, the videos and the class material.
@@ -100,11 +94,13 @@ This Notebook is older than the revision. It works, but it does not follow the o
 |---+---|
 | 5. Inverse of a matrix. Rank of a matrix | [[https://mybinder.org/v2/gh/mbujosab/nacal-jupyter-notebooks/master?urlpath=lab/tree/Eng/Lecc05-Secc5.1-Eng.ipynb][Lecc05-Secc5.1-Eng.ipynb]] |
 
+The following lectures do not have a Notebook yet.
+
 * How to work on your own computer (recommended)
 
 1. Install [[https://www.python.org/downloads/][Python]].
-2. Install Jupyter and NAcAL. In a terminal: =pip install jupyterlab nacal=
+2. Install Jupyter, NAcAL and the drawing modules that two Notebooks of Lecture 2 use. In a terminal: =pip install jupyterlab nacal matplotlib plotly=
 3. Download the whole [[https://github.com/mbujosab/nacal-Jupyter-Notebooks][repository]], or only the Notebooks you want.
 4. Open a terminal in the folder of the Notebooks and run =jupyter lab=. A browser window will open with the Notebooks.
 
-If you only want to read the Notebooks, without running them, you can see them [[https://nbviewer.jupyter.org/github/mbujosab/nacal-Jupyter-Notebooks/tree/master/][here]].
+If you only want to read the Notebooks, without running them, you can read their text [[https://nbviewer.org/github/mbujosab/nacal-Jupyter-Notebooks/tree/master/][here]].
