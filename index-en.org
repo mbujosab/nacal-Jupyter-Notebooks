@@ -1,14 +1,23 @@
 #+TITLE: Jupyter Notebooks for a Linear Algebra Course
 #+AUTHOR: Marcos Bujosa
 #+LANGUAGE: en
-#+OPTIONS: toc:nil num:nil
+#+OPTIONS: toc:nil num:nil html-style:nil
 #+EXPORT_FILE_NAME: index-en
-#+SETUPFILE: ./css/readtheorg_inline.theme
+#+HTML_HEAD: <link rel="stylesheet" href="https://mbujosab.github.io/css/algebra-lineal.css">
 
-#+HTML_HEAD: <style type="text/css">
-#+HTML_HEAD: .guia { width: 100%; } .guia td, .guia th { vertical-align: top; }
-#+HTML_HEAD: .guia col:nth-of-type(1) { width: 50%; } .guia col:nth-of-type(2) { width: 18%; }
-#+HTML_HEAD: </style>
+#+BEGIN_EXPORT html
+<nav class="blocknav" aria-label="Linear Algebra websites">
+  <div class="container">
+    <a href="https://mbujosab.github.io/CursoDeAlgebraLineal/">Book</a>
+    <a href="https://mbujosab.github.io/MatematicasII/">Class material</a>
+    <a href="https://mbujosab.github.io/nacal-Jupyter-Notebooks/" aria-current="page">Notebooks</a>
+    <a href="https://mbujosab.github.io/VideosMates2/">Videos</a>
+    <a href="https://mbujosab.github.io/nacallib/">NAcAL</a>
+    <a href="https://github.com/mbujosab/nacal-latex-package">LaTeX package</a>
+    <a href="https://mbujosab.github.io/">Marcos Bujosa</a>
+  </div>
+</nav>
+#+END_EXPORT
 
 [[file:index.html][Versión en español]]
 
